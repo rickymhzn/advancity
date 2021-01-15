@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-Slider Edit
+Create Slider
 @endsection
 @section('content')
 <!-- Content Header (Page header) -->
@@ -8,13 +8,13 @@ Slider Edit
      <div class="container-fluid">
           <div class="row mb-2">
                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Edit Slider</h1>
+                    <h1 class="m-0 text-dark">Create Slider</h1>
                </div><!-- /.col -->
                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                         <li class="breadcrumb-item"><a href="#">Sliders</a></li>
-                         <li class="breadcrumb-item active">Edit Slider</li>
+                         <li class="breadcrumb-item"><a href="#">Country Info</a></li>
+                         <li class="breadcrumb-item active">Country Info</li>
                     </ol>
                </div><!-- /.col -->
           </div><!-- /.row -->
@@ -29,14 +29,19 @@ Slider Edit
                <div class="col-12">
                     <div class="card card-primary">
                          <div class="card-header">
-                              <h3 class="card-title">Update Slider</h3>
+                              <h3 class="card-title">Country Info</h3>
                          </div>
                          <form role="form" action="{{ route('admin.slider.store') }}" method="post"
                               enctype="multipart/form-data">
                               @csrf
                               <div class="form-group">
-                                   <label for="order">Order:</label>
-                                   <input type="text" id="order" class="form-control">
+                                   <label for="order">Country Id:</label>
+                                   <select class="form-select form-control" aria-label="Default select example">
+                                        <option selected>Open this select menu</option>
+                                        <option value="1">One</option>
+                                        <option value="2">Two</option>
+                                        <option value="3">Three</option>
+                                   </select>
                               </div>
                               <div class="form-group">
                                    <label for="title">Title:</label>
@@ -44,12 +49,8 @@ Slider Edit
                                         class="form-control">
                               </div>
                               <div class="form-group">
-                                   <label for="description">Description:</label>
-                                   <textarea name="description" id="ckeditor" rows="5" class="form-control"></textarea>
-                              </div>
-                              <div class="form-group">
-                                   <label for="image">Image:</label>
-                                   <input type="file" name="image" required class="form-control">
+                                   <label for="content">Content:</label>
+                                   <textarea name="content" id="ckeditor" rows="5" class="form-control"></textarea>
                               </div>
                               <button type="submit" class="btn btn-success">Submit</button>
                          </form>

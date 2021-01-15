@@ -13,8 +13,8 @@ Slider Edit
                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                         <li class="breadcrumb-item"><a href="#">Sliders</a></li>
-                         <li class="breadcrumb-item active">Edit Slider</li>
+                         <li class="breadcrumb-item"><a href="#">Country</a></li>
+                         <li class="breadcrumb-item active">Edit Country</li>
                     </ol>
                </div><!-- /.col -->
           </div><!-- /.row -->
@@ -35,13 +35,8 @@ Slider Edit
                               enctype="multipart/form-data">
                               @csrf
                               <div class="form-group">
-                                   <label for="order">Order:</label>
+                                   <label for="order">Country:</label>
                                    <input type="text" id="order" class="form-control">
-                              </div>
-                              <div class="form-group">
-                                   <label for="title">Title:</label>
-                                   <input type="text" id="title" name="title" placeholder="Slider Title"
-                                        class="form-control">
                               </div>
                               <div class="form-group">
                                    <label for="description">Description:</label>
@@ -51,7 +46,11 @@ Slider Edit
                                    <label for="image">Image:</label>
                                    <input type="file" name="image" required class="form-control">
                               </div>
-                              <button type="submit" class="btn btn-success">Submit</button>
+                              <div class="form-group">
+                                   <label for="thumbnail">Thumbnail:</label>
+                                   <input type="file" name="thumbnail" required class="form-control">
+                              </div>
+                              <button type="submit" class="btn btn-success">Add</button>
                          </form>
                     </div>
                </div>

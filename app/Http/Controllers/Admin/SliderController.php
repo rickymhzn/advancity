@@ -17,8 +17,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::orderBy('order', 'asc')->get();
-        return view('admin.slider.index',compact('sliders'));
+        // $sliders = Slider::orderBy('order', 'asc')->get();
+        return view('admin.slider.index');
     }
 
     /**

@@ -8,7 +8,7 @@ Sliders
      <div class="container-fluid">
           <div class="row mb-2">
                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Sliders</h1>
+                    <h1 class="m-0 text-dark">Country</h1>
                </div><!-- /.col -->
                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -36,15 +36,17 @@ Sliders
                                    <thead>
                                         <tr>
                                              <th>SN</th>
-                                             <th>Title</th>
+                                             <th>Country</th>
+                                             <th>Description</th>
                                              <th>Image</th>
-                                             <th>Action</th>
+                                             <th>Thumbnail</th>
                                         </tr>
                                    </thead>
                                    <tbody>
                                         <tr>
                                              <td>1</td>
                                              <td>Doe</td>
+                                             <td>john@example.com</td>
                                              <td>john@example.com</td>
                                         </tr>
 

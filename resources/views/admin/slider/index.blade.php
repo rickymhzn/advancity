@@ -52,7 +52,7 @@ Sliders
                                              <td>
                                              <img src="{{ asset('assets/images/sliders/' . $slider->image) }}" alt="{{ $slider->title }}" style="width: 150px; height:auto;">
                                              </td>
-                                             <td>{{ $slider->description }}</td>
+                                             <td>{!! $slider->description !!}</td>
                                              <td>
                                                   <a class="btn btn-sm btn-info" href="{{ route('admin.slider.edit',['id' => $slider->id]) }}">Edit</a>
                                                   <a class="btn btn-sm btn-danger" href="{{ route('admin.slider.destroy',['id' => $slider->id]) }}">Delete</a>

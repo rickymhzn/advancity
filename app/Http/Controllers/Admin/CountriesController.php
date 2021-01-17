@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Country;
+use Image;
+use Validator;
+
 
 class CountriesController extends Controller
 {
@@ -14,7 +18,8 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        //
+        $countries = Country::orderBy('id', 'asc')->get();
+        return view('admin.destination.country.index',compact('countries'));
     }
 
     /**
@@ -24,7 +29,7 @@ class CountriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.destination.country.create');
     }
 
     /**
@@ -35,7 +40,41 @@ class CountriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //--- Validation Section
+         $this->validate($request,[
+            'country'      => 'required',
+            'description'      => 'required',
+            'image'      => 'required|mimes:jpeg,jpg,png,svg',
+            'thumbnail'      => 'required|mimes:jpeg,jpg,png,svg',
+        ]);
+        //--- Validation Section Ends
+
+        //--- Logic Section
+        $country = new Country();
+        $country->country = $request->country;
+        $country->description = $request->description;
+
+        if ($request->file('image')) 
+         {      
+            $file = $request->file('image');
+            $image = time().$file->getClientOriginalName();
+            $file->move('assets/images/country',$image);           
+            $country->image = $image;
+        } 
+        if ($request->file('thumbnail')) 
+        {      
+           $file2 = $request->file('thumbnail');
+           $thumbnail = time().$file->getClientOriginalName();
+           $file2->move('assets/images/country/thumb',$thumbnail);           
+           $country->thumbnail = $thumbnail;
+       } 
+        $country->save();
+        //--- Logic Section Ends
+
+        //--- Redirect Section        
+        return redirect()->route('admin.countries')->with('success',"Country Created Successfully");
+         
+        //--- Redirect Section Ends  
     }
 
     /**
@@ -57,7 +96,8 @@ class CountriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $country = Country::findOrFail($id);
+        return view('admin.destination.country.edit',compact('country')); 
     }
 
     /**
@@ -69,7 +109,41 @@ class CountriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //--- Validation Section
+        $this->validate($request,[
+            'country'      => 'required',
+            'description'      => 'required',
+        ]);
+        //--- Validation Section Ends
+
+        //--- Logic Section
+        $country = Country::findOrFail($id);
+        $country->country = $request->country;
+        $country->description = $request->description;
+
+        if ($request->file('image')) 
+         {      
+            @unlink(public_path('assets/images/country/'.$country->image));
+            $file = $request->file('image');
+            $image = time().$file->getClientOriginalName();
+            $file->move('assets/images/country',$image);           
+            $country->image = $image;
+        } 
+        if ($request->file('thumbnail')) 
+        {     
+          @unlink(public_path('assets/images/country/thumb/'.$country->thumbnail)); 
+           $file2 = $request->file('thumbnail');
+           $thumbnail = time().$file->getClientOriginalName();
+           $file2->move('assets/images/country/thumb',$thumbnail);           
+           $country->thumbnail = $thumbnail;
+       } 
+        $country->save();
+        //--- Logic Section Ends
+
+        //--- Redirect Section        
+        return redirect()->route('admin.countries')->with('success',"Country Updated Successfully");
+         
+        //--- Redirect Section Ends  
     }
 
     /**
@@ -80,6 +154,10 @@ class CountriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $country = Country::findOrFail($id);
+        @unlink(public_path('assets/images/country/'.$country->image));
+        @unlink(public_path('assets/images/country/thumb/'.$country->thumbnail));
+        $country->delete();
+        return redirect()->route('admin.countries')->with('error','Country Deleted Successfully');
     }
 }

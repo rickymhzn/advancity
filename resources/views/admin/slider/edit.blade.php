@@ -31,27 +31,29 @@ Slider Edit
                          <div class="card-header">
                               <h3 class="card-title">Update Slider</h3>
                          </div>
-                         <form role="form" action="{{ route('admin.slider.store') }}" method="post"
+                         <form role="form" action="{{ route('admin.slider.update',['id' => $slider->id])  }}" method="post"
                               enctype="multipart/form-data">
                               @csrf
                               <div class="form-group">
                                    <label for="order">Order:</label>
-                                   <input type="text" id="order" class="form-control">
+                                   <input type="text" id="order" name="order" class="form-control" value="{{ $slider->order }}">
                               </div>
                               <div class="form-group">
                                    <label for="title">Title:</label>
                                    <input type="text" id="title" name="title" placeholder="Slider Title"
-                                        class="form-control">
+                                        class="form-control" value="{{ $slider->title }}">
                               </div>
                               <div class="form-group">
                                    <label for="description">Description:</label>
-                                   <textarea name="description" id="ckeditor" rows="5" class="form-control"></textarea>
+                                   <textarea name="description" id="ckeditor" rows="5" class="form-control">
+                                   {{ $slider->description }}</textarea>
                               </div>
                               <div class="form-group">
                                    <label for="image">Image:</label>
-                                   <input type="file" name="image" required class="form-control">
+                                   <input type="file" name="image" class="form-control">
+                                   <img src="{{ asset('assets/images/sliders/' . $slider->image) }}" alt="{{ $slider->title }}" style="width: 150px; height:auto;">
                               </div>
-                              <button type="submit" class="btn btn-success">Submit</button>
+                              <button type="submit" class="btn btn-success">Update</button>
                          </form>
                     </div>
                </div>

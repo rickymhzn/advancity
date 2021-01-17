@@ -31,16 +31,16 @@ Create Slider
                          <div class="card-header">
                               <h3 class="card-title">Add Country</h3>
                          </div>
-                         <form role="form" action="{{ route('admin.slider.store') }}" method="post"
+                         <form role="form" action="{{ route('admin.country.store') }}" method="post"
                               enctype="multipart/form-data">
                               @csrf
                               <div class="form-group">
                                    <label for="order">Country:</label>
-                                   <input type="text" id="order" class="form-control">
+                                   <input type="text" id="country" name="country" class="form-control">
                               </div>
                               <div class="form-group">
                                    <label for="description">Description:</label>
-                                   <textarea name="description" id="ckeditor" rows="5" class="form-control"></textarea>
+                                   <textarea name="description" id="summernote" rows="5" class="form-control"></textarea>
                               </div>
                               <div class="form-group">
                                    <label for="image">Image:</label>

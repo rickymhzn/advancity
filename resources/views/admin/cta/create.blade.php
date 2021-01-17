@@ -29,9 +29,9 @@ Create Slider
                <div class="col-12">
                     <div class="card card-primary">
                          <div class="card-header">
-                              <h3 class="card-title">Add Country</h3>
+                              <h3 class="card-title">Add CTA</h3>
                          </div>
-                         <form role="form" action="{{ route('admin.slider.store') }}" method="post"
+                         <form role="form" action="{{ route('admin.cta.store') }}" method="post"
                               enctype="multipart/form-data">
                               @csrf
                               <div class="form-group">
@@ -39,27 +39,28 @@ Create Slider
                                    <input type="file" name="image" required class="form-control">
                               </div>
                               <div class="form-group">
-                                   <label for="order">Title:</label>
-                                   <input type="text" id="order" class="form-control">
+                                   <label for="title">Title:</label>
+                                   <input type="text" id="title" name="title" class="form-control">
                               </div>
                               <div class="form-group">
                                    <label for="description">Description:</label>
-                                   <textarea name="description" id="ckeditor" rows="5" class="form-control"></textarea>
+                                   <textarea name="description" id="summernote" rows="5" class="form-control"></textarea>
                               </div>
                               <div class="form-group">
                                    <label for="link1">Link1:</label>
-                                   <input type="text" name="link1" class="form-control">
+                                   <input type="url" name="link1" class="form-control">
                               </div>
                               <div class="form-group">
                                    <label for="link2">Link2:</label>
-                                   <input type="text" name="link2" class="form-control">
+                                   <input type="url" name="link2" class="form-control">
                               </div>
                               <div class="form-group">
-                                   <label for="active">Active:</label>
-                                   <input type="checked-box" checked data-toggle="toggle" name="active"
-                                        class="form-control">
+                                   
+                                   <div class="custom-control custom-switch">
+                                   <input type="checkbox" class="custom-control-input" id="status" name="status">
+                                   <label class="custom-control-label" for="status">Status</label>
+                                   </div>
                               </div>
-
                               <button type="submit" class="btn btn-success">Add</button>
                          </form>
                     </div>

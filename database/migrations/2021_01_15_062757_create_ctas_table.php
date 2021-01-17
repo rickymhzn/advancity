@@ -20,7 +20,7 @@ class CreateCtasTable extends Migration
             $table->text('description')->nullable();
             $table->string('link1')->nullable();
             $table->string('link2')->nullable();
-            $table->boolean('active')->default('1');
+            $table->tinyInteger('status')->default('1')->comment('0=inactive 1=active');
             $table->timestamps();
         });
     }

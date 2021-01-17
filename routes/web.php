@@ -46,7 +46,7 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
 	 Route::get('/cta/delete/{id}', 'Admin\CtasController@destroy')->name('admin.cta.destroy');
     //Settings
     Route::get('/settings','Admin\SettingController@index')->name('settings');
-    Route::put('/setting/update','Admin\SettingController@update')->name('setting.update');
+    Route::post('/setting/update/{id}','Admin\SettingController@update')->name('setting.update');
 });
 
 // Frontend

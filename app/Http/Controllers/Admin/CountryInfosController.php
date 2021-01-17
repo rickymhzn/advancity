@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Country;
+use App\Models\CountryInfo;
+use Image;
+use Validator;
 
 class CountryInfosController extends Controller
 {
@@ -14,7 +18,9 @@ class CountryInfosController extends Controller
      */
     public function index()
     {
-        //
+
+        $countryinfos = CountryInfo::with('country')->orderBy('id', 'asc')->get();
+        return view('admin.destination.countryinfo.index',compact('countryinfos'));
     }
 
     /**
@@ -24,7 +30,8 @@ class CountryInfosController extends Controller
      */
     public function create()
     {
-        //
+        $countries = Country::orderBy('id', 'asc')->get();
+        return view('admin.destination.countryinfo.create',compact('countries'));
     }
 
     /**
@@ -35,7 +42,26 @@ class CountryInfosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         //--- Validation Section
+         $this->validate($request,[
+            'countryid'      => 'required',
+            'title'      => 'required',
+            'content'      => 'required', 
+        ]);
+        //--- Validation Section Ends
+
+        //--- Logic Section
+        $countryinfo = new CountryInfo();
+        $countryinfo->country_id = $request->countryid;
+        $countryinfo->title = $request->title;
+        $countryinfo->content = $request->content;
+        $countryinfo->save();
+        //--- Logic Section Ends
+
+        //--- Redirect Section        
+        return redirect()->route('admin.countryinfos')->with('success',"Country Info Created Successfully");
+         
+        //--- Redirect Section Ends  
     }
 
     /**
@@ -57,7 +83,9 @@ class CountryInfosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $countries = Country::orderBy('id', 'asc')->get();
+        $countryinfo = CountryInfo::findOrFail($id);
+        return view('admin.destination.countryinfo.edit',compact('countries','countryinfo')); 
     }
 
     /**
@@ -69,7 +97,26 @@ class CountryInfosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         //--- Validation Section
+         $this->validate($request,[
+            'countryid'      => 'required',
+            'title'      => 'required',
+            'content'      => 'required',
+        ]);
+        //--- Validation Section Ends
+
+        //--- Logic Section
+        $countryinfo = CountryInfo::findOrFail($id);
+        $countryinfo->country_id = $request->countryid;
+        $countryinfo->title = $request->title;
+        $countryinfo->content = $request->content;
+        $countryinfo->save();
+        //--- Logic Section Ends
+
+        //--- Redirect Section        
+        return redirect()->route('admin.countryinfos')->with('success',"Country Info Updated Successfully");
+         
+        //--- Redirect Section Ends  
     }
 
     /**
@@ -80,6 +127,8 @@ class CountryInfosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $countryinfo = CountryInfo::findOrFail($id);
+        $countryinfo->delete();
+        return redirect()->route('admin.countryinfos')->with('error','Country Info Deleted Successfully');
     }
 }

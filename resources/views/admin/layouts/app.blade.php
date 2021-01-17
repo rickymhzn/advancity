@@ -17,6 +17,9 @@
      <link rel="stylesheet" href="//cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
      <!-- Google Font: Source Sans Pro -->
      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+     <!-- Other package css -->
+     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
      <!-- custom css -->
      <link rel="stylesheet" href="{{ asset('assets/admin') }}/dist/css/admin.css">
 
@@ -73,10 +76,33 @@
 
      <!-- PAGE SCRIPTS -->
      <script src="{{ asset('assets/admin') }}/dist/js/pages/dashboard2.js"></script>
+
+     <!-- Other plugins -->
+     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
      <script>
      $(document).ready(function() {
           $('#datatable').DataTable();
      });
+     </script>
+     <script>
+     $(document).ready(function() {
+          $('#summernote').summernote();
+     });
+     </script>
+     <script>
+     // Display a success toast, with a title
+     @if(Session::has('success'))    
+          toastr.success("{{ Session::get('success') }}",'Success')  
+     @endif
+     // Display a Warning toast, with a title
+     @if(Session::has('warning'))    
+          toastr.warning("{{ Session::get('warning') }}",'Warning')  
+     @endif
+     // Display a Error toast, with a title
+     @if(Session::has('error'))    
+           toastr.error("{{ Session::get('error') }}",'Error')  
+     @endif
      </script>
 </body>
 

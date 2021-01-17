@@ -36,7 +36,7 @@ Create Slider
                               @csrf
                               <div class="form-group">
                                    <label for="order">Order:</label>
-                                   <input type="text" id="order" class="form-control">
+                                   <input type="text" id="order" name="order" class="form-control">
                               </div>
                               <div class="form-group">
                                    <label for="title">Title:</label>
@@ -44,13 +44,13 @@ Create Slider
                               </div>
                               <div class="form-group">
                                    <label for="description">Description:</label>
-                                   <textarea name="description" id="ckeditor" rows="5" class="form-control"></textarea>
+                                   <textarea name="description" id="summernote" rows="5" class="form-control"></textarea>
                               </div>
                               <div class="form-group">
                                    <label for="image">Image:</label>
                                    <input type="file" name="image" required class="form-control">
                               </div>
-                              <button type="submit" class="btn btn-success">Submit</button>
+                              <button type="submit" class="btn btn-success">Add</button>
                          </form>
                     </div>
                </div>

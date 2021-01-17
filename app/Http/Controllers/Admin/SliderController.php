@@ -17,8 +17,8 @@ class SliderController extends Controller
      */
     public function index()
     {
-        // $sliders = Slider::orderBy('order', 'asc')->get();
-        return view('admin.slider.index');
+     $sliders = Slider::orderBy('order', 'asc')->get();
+        return view('admin.slider.index',compact('sliders'));
     }
 
     /**
@@ -49,7 +49,7 @@ class SliderController extends Controller
         $slider = new Slider();
         $slider->order = $request->order;
         $slider->title = $request->title;
-        $slider->desc = $request->description;
+        $slider->description = $request->description;
 
         if ($request->file('image')) 
          {      
@@ -59,9 +59,9 @@ class SliderController extends Controller
             $slider->image = $image;
          
             // resize image to fixed size
-            $thumb_image = $image.'_thumb';
+            //$thumb_image = $image.'_thumb';
             // Image::make($file)->resize(122,122)->save(public_path('images/sliders',$thumb_image));
-            $slider->thumbnail = $thumb_image;
+            //$slider->thumbnail = $thumb_image;
         } 
         $slider->save();
         //--- Logic Section Ends
@@ -109,7 +109,7 @@ class SliderController extends Controller
         $slider = Slider::findOrFail($id);
         $slider->order = $request->order;
         $slider->title = $request->title;
-        $slider->desc = $request->description;
+        $slider->description = $request->description;
 
         if ($request->file('image')) 
          {      
@@ -120,9 +120,9 @@ class SliderController extends Controller
             $slider->image = $image;
          
             // resize image to fixed size
-            $thumb_image = $image.'_thumb';
+           // $thumb_image = $image.'_thumb';
             // Image::make($file)->resize(122,122)->save(public_path('images/sliders',$thumb_image));
-            $slider->thumbnail = $thumb_image;
+            //$slider->thumbnail = $thumb_image;
         } 
         $slider->save();
         //--- Logic Section Ends
@@ -143,6 +143,6 @@ class SliderController extends Controller
         @unlink(public_path('assets/images/sliders/'.$slider->image));
         // @unlink(public_path('assets/images/sliders'.$slider->thumbnail));
         $slider->delete();
-        return redirect()->route('admin.sliders')->with('success','Slider Deleted Successfully');
+        return redirect()->route('admin.sliders')->with('error','Slider Deleted Successfully');
     }
 }

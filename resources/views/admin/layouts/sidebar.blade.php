@@ -67,6 +67,18 @@
                               <p>Call To Actions</p>
                          </a>
                     </li>
+                    <li class="nav-item">
+                         <a href="{{ route('admin.teams') }}" class="nav-link">
+                              <i class="nav-icon fas fa-th"></i>
+                              <p>Team Members</p>
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="{{ route('admin.universities') }}" class="nav-link">
+                              <i class="nav-icon fas fa-th"></i>
+                              <p>Universities</p>
+                         </a>
+                    </li>
                     <li class="nav-header">MULTI LEVEL EXAMPLE</li>
                     
                     <li class="nav-item has-treeview">

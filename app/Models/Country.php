@@ -12,4 +12,8 @@ class Country extends Model
     {
         return $this->hasMany(\App\Models\CountryInfo::class, 'country_id');
     }
+    public function universities()
+    {
+        return $this->hasMany(\App\Models\University::class, 'country_id');
+    }
 }

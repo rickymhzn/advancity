@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
- Edit CTA
+ Edit Team Member
 @endsection
 @section('content')
 <!-- Content Header (Page header) -->
@@ -13,8 +13,8 @@
                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                         <li class="breadcrumb-item"><a href="#">CTA</a></li>
-                         <li class="breadcrumb-item active">Edit CTA</li>
+                         <li class="breadcrumb-item"><a href="#">Team</a></li>
+                         <li class="breadcrumb-item active">Edit Team Member</li>
                     </ol>
                </div><!-- /.col -->
           </div><!-- /.row -->
@@ -29,41 +29,40 @@
                <div class="col-12">
                     <div class="card card-primary">
                          <div class="card-header">
-                              <h3 class="card-title">Update CTA</h3>
+                              <h3 class="card-title">Edit Team Member</h3>
                          </div>
-                         <form role="form" action="{{ route('admin.cta.update',['id' => $cta->id])  }}" method="post"
+                         <form role="form" action="{{ route('admin.team.update',['id' => $team->id])  }}" method="post"
                               enctype="multipart/form-data">
                               @csrf
                               <div class="form-group">
-                                   <label for="image">Image*:</label>
+                                   <label for="image">Image:</label>
                                    <input type="file" name="image" class="form-control">
-                                   <img src="{{ asset('assets/images/cta/' . $cta->image) }}" alt="image" style="width: 150px; height:auto;">
+                                   <img src="{{ asset('assets/images/team/' . $team->image) }}" alt="{{ $team->name }}" style="width: 150px; height:auto;">
+                              </div>
+                     
+                              <div class="form-group">
+                                   <label for="name">Name*:</label>
+                                   <input type="text" id="name" name="name" required class="form-control" value="{{ $team->name }}">
                               </div>
                               <div class="form-group">
-                                   <label for="title">Title:</label>
-                                   <input type="text" id="title" name="title" class="form-control" value="{{ $cta->title }}">
+                                   <label for="designation">Designation:</label>
+                                   <input type="text" name="designation" required class="form-control" value="{{ $team->designation }}">
+                              </div>
+                              
+                              <div class="form-group">
+                                   <label for="contact">Contact:</label>
+                                   <input type="text" name="email" class="form-control" value="{{ $team->contact }}">
+                              </div>
+                              <div class="form-group">
+                                   <label for="email">Email:</label>
+                                   <input type="email" name="email" class="form-control" value="{{ $team->email }}">
                               </div>
                               <div class="form-group">
                                    <label for="description">Description:</label>
                                    <textarea name="description" id="summernote" rows="5" class="form-control">
-                                   {!! $cta->description !!}
+                                  {!! $team->description !!}
                                    </textarea>
-                              </div>
-                              <div class="form-group">
-                                   <label for="link1">Link1:</label>
-                                   <input type="url" name="link1" class="form-control" value="{{ $cta->link1 }}">
-                              </div>
-                              <div class="form-group">
-                                   <label for="link2">Link2:</label>
-                                   <input type="url" name="link2" class="form-control" value="{{ $cta->link2 }}">
-                              </div>
-                              <div class="form-group">
-                                   
-                                   <div class="custom-control custom-switch">
-                                   <input type="checkbox" class="custom-control-input" id="status" name="status" {{ $cta->status == 1 ? 'checked' : '' }}>
-                                   <label class="custom-control-label" for="status">Status</label>
-                                   </div>
-                              </div>
+                              </div>     
                               <button type="submit" class="btn btn-success">Update</button>
                          </form>
                     </div>

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cta extends Model
 {
-    protected $fillable = ['title','description','link1','link2'];
+    protected $fillable = ['image','title','description','link1','link2','status'];
 }

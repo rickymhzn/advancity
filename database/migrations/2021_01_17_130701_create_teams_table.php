@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCtasTable extends Migration
+class CreateTeamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateCtasTable extends Migration
      */
     public function up()
     {
-        Schema::create('ctas', function (Blueprint $table) {
+        Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('image');
-            $table->string('title')->nullable();
-            $table->text('description')->nullable();
-            $table->string('link1')->nullable();
-            $table->string('link2')->nullable();
-            $table->tinyInteger('status')->default('1')->comment('0=inactive 1=active');
+            $table->string('name');
+            $table->string('designation');
+            $table->string('contact')->nullable();
+            $table->string('email')->nullable();
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateCtasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ctas');
+        Schema::dropIfExists('teams');
     }
 }

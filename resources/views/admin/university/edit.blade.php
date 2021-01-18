@@ -31,39 +31,37 @@
                          <div class="card-header">
                               <h3 class="card-title">Update CTA</h3>
                          </div>
-                         <form role="form" action="{{ route('admin.cta.update',['id' => $cta->id])  }}" method="post"
+                         <form role="form" action="{{ route('admin.university.update',['id' => $university->id])  }}" method="post"
                               enctype="multipart/form-data">
                               @csrf
                               <div class="form-group">
+                                   <label for="countryid">Country Id:</label>
+                                   <select class="form-select form-control" name="countryid" aria-label="Default select example">
+                                      @foreach($countries as $country)
+                                        <option value="{{ $country->id }}" {{ old('country_id', $university->country_id) == $country->id   ? 'selected' : '' }} >{{ $country->country }}</option>
+                                      @endforeach
+                                   </select>
+                              </div>
+                              <div class="form-group">
+                                   <label for="name">Name:</label>
+                                   <input type="text" id="title" name="name" class="form-control" value="{{ $university->name }}">
+                              </div>
+                              <div class="form-group">
+                                   <label for="logo">Logo:</label>
+                                   <input type="file" name="logo" class="form-control">
+                                   <img src="{{ asset('assets/images/university/logo/' . $university->logo) }}" alt="image" style="width: 150px; height:auto;">
+                              </div>
+                              <div class="form-group">
                                    <label for="image">Image*:</label>
                                    <input type="file" name="image" class="form-control">
-                                   <img src="{{ asset('assets/images/cta/' . $cta->image) }}" alt="image" style="width: 150px; height:auto;">
+                                   <img src="{{ asset('assets/images/university/' . $university->image) }}" alt="image" style="width: 150px; height:auto;">
                               </div>
+                    
                               <div class="form-group">
-                                   <label for="title">Title:</label>
-                                   <input type="text" id="title" name="title" class="form-control" value="{{ $cta->title }}">
+                                   <label for="website">Website:</label>
+                                   <input type="url" name="website" class="form-control" value="{{ $university->website }}">
                               </div>
-                              <div class="form-group">
-                                   <label for="description">Description:</label>
-                                   <textarea name="description" id="summernote" rows="5" class="form-control">
-                                   {!! $cta->description !!}
-                                   </textarea>
-                              </div>
-                              <div class="form-group">
-                                   <label for="link1">Link1:</label>
-                                   <input type="url" name="link1" class="form-control" value="{{ $cta->link1 }}">
-                              </div>
-                              <div class="form-group">
-                                   <label for="link2">Link2:</label>
-                                   <input type="url" name="link2" class="form-control" value="{{ $cta->link2 }}">
-                              </div>
-                              <div class="form-group">
-                                   
-                                   <div class="custom-control custom-switch">
-                                   <input type="checkbox" class="custom-control-input" id="status" name="status" {{ $cta->status == 1 ? 'checked' : '' }}>
-                                   <label class="custom-control-label" for="status">Status</label>
-                                   </div>
-                              </div>
+                             
                               <button type="submit" class="btn btn-success">Update</button>
                          </form>
                     </div>

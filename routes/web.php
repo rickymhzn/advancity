@@ -44,9 +44,23 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
 	 Route::get('/cta/edit/{id}', 'Admin\CtasController@edit')->name('admin.cta.edit');
 	 Route::post('/cta/update/{id}', 'Admin\CtasController@update')->name('admin.cta.update');
 	 Route::get('/cta/delete/{id}', 'Admin\CtasController@destroy')->name('admin.cta.destroy');
+	 // Team
+	 Route::get('/teams', 'Admin\TeamsController@index')->name('admin.teams');
+	 Route::get('/team/create', 'Admin\TeamsController@create')->name('admin.team.create');
+	 Route::post('/team/store', 'Admin\TeamsController@store')->name('admin.team.store');
+	 Route::get('/team/edit/{id}', 'Admin\TeamsController@edit')->name('admin.team.edit');
+	 Route::post('/team/update/{id}', 'Admin\TeamsController@update')->name('admin.team.update');
+	 Route::get('/team/delete/{id}', 'Admin\TeamsController@destroy')->name('admin.team.destroy');
+	 // Uninversity
+	 Route::get('/universities', 'Admin\UniversitiesController@index')->name('admin.universities');
+	 Route::get('/university/create', 'Admin\UniversitiesController@create')->name('admin.university.create');
+	 Route::post('/university/store', 'Admin\UniversitiesController@store')->name('admin.university.store');
+	 Route::get('/university/edit/{id}', 'Admin\UniversitiesController@edit')->name('admin.university.edit');
+	 Route::post('/university/update/{id}', 'Admin\UniversitiesController@update')->name('admin.university.update');
+	 Route::get('/university/delete/{id}', 'Admin\UniversitiesController@destroy')->name('admin.university.destroy');
     //Settings
     Route::get('/settings','Admin\SettingController@index')->name('settings');
-    Route::put('/setting/update','Admin\SettingController@update')->name('setting.update');
+    Route::post('/setting/update/{id}','Admin\SettingController@update')->name('setting.update');
 });
 
 // Frontend

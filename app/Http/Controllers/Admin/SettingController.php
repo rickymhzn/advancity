@@ -15,8 +15,8 @@ class SettingController extends Controller
      */
     public function index()
     {
-        $settings = Setting::first();
-        return view('admin.setting',compact('settings'));
+        $setting = Setting::first();
+        return view('admin.setting',compact('setting'));
     }
 
     /**
@@ -59,7 +59,7 @@ class SettingController extends Controller
         }
         if($request->file('company_logo')){
             @unlink(public_path('/assets/images/settings/'. $settings->company_logo));
-            $logofile = $request->file('logo');
+            $logofile = $request->file('company_logo');
             $company_logo = time().$logofile->getClientOriginalName();
             $logofile->move('assets/images/settings',$company_logo);           
             $settings->company_logo = $company_logo;

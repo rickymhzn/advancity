@@ -79,6 +79,30 @@
                               <p>Universities</p>
                          </a>
                     </li>
+                    <li class="nav-item">
+                         <a href="{{ route('admin.services') }}" class="nav-link">
+                              <i class="nav-icon fas fa-th"></i>
+                              <p>Services</p>
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="{{ route('admin.pages') }}" class="nav-link">
+                              <i class="nav-icon fas fa-th"></i>
+                              <p>Pages</p>
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="{{ route('counter') }}" class="nav-link">
+                              <i class="nav-icon fas fa-th"></i>
+                              <p>Counter</p>
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="{{ route('admin.testimonials') }}" class="nav-link">
+                              <i class="nav-icon fas fa-th"></i>
+                              <p>Testimonials</p>
+                         </a>
+                    </li>
                     <li class="nav-header">MULTI LEVEL EXAMPLE</li>
                     
                     <li class="nav-item has-treeview">

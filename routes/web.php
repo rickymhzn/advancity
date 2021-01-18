@@ -58,7 +58,31 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
 	 Route::get('/university/edit/{id}', 'Admin\UniversitiesController@edit')->name('admin.university.edit');
 	 Route::post('/university/update/{id}', 'Admin\UniversitiesController@update')->name('admin.university.update');
 	 Route::get('/university/delete/{id}', 'Admin\UniversitiesController@destroy')->name('admin.university.destroy');
-    //Settings
+	// Service
+	Route::get('/services', 'Admin\ServicesController@index')->name('admin.services');
+	Route::get('/service/create', 'Admin\ServicesController@create')->name('admin.service.create');
+	Route::post('/service/store', 'Admin\ServicesController@store')->name('admin.service.store');
+	Route::get('/service/edit/{id}', 'Admin\ServicesController@edit')->name('admin.service.edit');
+	Route::post('/service/update/{id}', 'Admin\ServicesController@update')->name('admin.service.update');
+	Route::get('/service/delete/{id}', 'Admin\ServicesController@destroy')->name('admin.service.destroy');
+	// Pages
+	Route::get('/pages', 'Admin\PagesController@index')->name('admin.pages');
+	Route::get('/page/create', 'Admin\PagesController@create')->name('admin.page.create');
+	Route::post('/page/store', 'Admin\PagesController@store')->name('admin.page.store');
+	Route::get('/page/edit/{id}', 'Admin\PagesController@edit')->name('admin.page.edit');
+	Route::post('/page/update/{id}', 'Admin\PagesController@update')->name('admin.page.update');
+	Route::get('/page/delete/{id}', 'Admin\PagesController@destroy')->name('admin.page.destroy');
+	// Testimonials
+	Route::get('/testimonials', 'Admin\TestimonialsController@index')->name('admin.testimonials');
+	Route::get('/testimonial/create', 'Admin\TestimonialsController@create')->name('admin.testimonial.create');
+	Route::post('/testimonial/store', 'Admin\TestimonialsController@store')->name('admin.testimonial.store');
+	Route::get('/testimonial/edit/{id}', 'Admin\TestimonialsController@edit')->name('admin.testimonial.edit');
+	Route::post('/testimonial/update/{id}', 'Admin\TestimonialsController@update')->name('admin.testimonial.update');
+	Route::get('/testimonial/delete/{id}', 'Admin\TestimonialsController@destroy')->name('admin.testimonial.destroy');
+	// Counter
+	Route::get('/counter','Admin\CounterController@index')->name('counter');
+    Route::post('/counter/update/{id}','Admin\CounterController@update')->name('counter.update');
+	 //Settings
     Route::get('/settings','Admin\SettingController@index')->name('settings');
     Route::post('/setting/update/{id}','Admin\SettingController@update')->name('setting.update');
 });

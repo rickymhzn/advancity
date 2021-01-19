@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['register' => false]);
 Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
     Route::get('/dashboard','Admin\DashboardController@index')->name('dashboard');
     // Slider
@@ -37,7 +37,21 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
 	Route::get('/countryinfo/edit/{id}', 'Admin\CountryInfosController@edit')->name('admin.countryinfo.edit');
 	Route::post('/countryinfo/update/{id}', 'Admin\CountryInfosController@update')->name('admin.countryinfo.update');
 	Route::get('/countryinfo/delete/{id}', 'Admin\CountryInfosController@destroy')->name('admin.countryinfo.destroy');
-	 // CTA
+	// Courses
+	Route::get('/courses', 'Admin\CoursesController@index')->name('admin.courses');
+	Route::get('/course/create', 'Admin\CoursesController@create')->name('admin.course.create');
+	Route::post('/course/store', 'Admin\CoursesController@store')->name('admin.course.store');
+	Route::get('/course/edit/{id}', 'Admin\CoursesController@edit')->name('admin.course.edit');
+	Route::post('/course/update/{id}', 'Admin\CoursesController@update')->name('admin.course.update');
+	Route::get('/course/delete/{id}', 'Admin\CoursesController@destroy')->name('admin.course.destroy');
+	// Subjects
+	Route::get('/subjects', 'Admin\SubjectsController@index')->name('admin.subjects');
+	Route::get('/subject/create', 'Admin\SubjectsController@create')->name('admin.subject.create');
+	Route::post('/subject/store', 'Admin\SubjectsController@store')->name('admin.subject.store');
+	Route::get('/subject/edit/{id}', 'Admin\SubjectsController@edit')->name('admin.subject.edit');
+	Route::post('/subject/update/{id}', 'Admin\SubjectsController@update')->name('admin.subject.update');
+	Route::get('/subject/delete/{id}', 'Admin\SubjectsController@destroy')->name('admin.subject.destroy'); 
+	// CTA
 	 Route::get('/ctas', 'Admin\CtasController@index')->name('admin.ctas');
 	 Route::get('/cta/create', 'Admin\CtasController@create')->name('admin.cta.create');
 	 Route::post('/cta/store', 'Admin\CtasController@store')->name('admin.cta.store');

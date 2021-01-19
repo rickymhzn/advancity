@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-Slider Edit
+Create Course
 @endsection
 @section('content')
 <!-- Content Header (Page header) -->
@@ -8,13 +8,13 @@ Slider Edit
      <div class="container-fluid">
           <div class="row mb-2">
                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Edit Slider</h1>
+                    <h1 class="m-0 text-dark">Create Course</h1>
                </div><!-- /.col -->
                <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                         <li class="breadcrumb-item"><a href="#">Sliders</a></li>
-                         <li class="breadcrumb-item active">Edit Slider</li>
+                         <li class="breadcrumb-item"><a href="#">Courses</a></li>
+                         <li class="breadcrumb-item active">Create Course</li>
                     </ol>
                </div><!-- /.col -->
           </div><!-- /.row -->
@@ -29,31 +29,25 @@ Slider Edit
                <div class="col-12">
                     <div class="card card-primary">
                          <div class="card-header">
-                              <h3 class="card-title">Update Slider</h3>
+                              <h3 class="card-title">Create Course</h3>
                          </div>
-                         <form role="form" action="{{ route('admin.slider.update',['id' => $slider->id])  }}" method="post"
+                         <form role="form" action="{{ route('admin.course.store') }}" method="post"
                               enctype="multipart/form-data">
                               @csrf
+                         
                               <div class="form-group">
-                                   <label for="order">Order:</label>
-                                   <input type="text" id="order" name="order" class="form-control" value="{{ $slider->order }}">
-                              </div>
-                              <div class="form-group">
-                                   <label for="title">Title:</label>
-                                   <input type="text" id="title" name="title" placeholder="Slider Title"
-                                        class="form-control" value="{{ $slider->title }}">
+                                   <label for="name">Name:</label>
+                                   <input type="text" id="name" name="name" class="form-control">
                               </div>
                               <div class="form-group">
                                    <label for="description">Description:</label>
-                                   <textarea name="description" id="summernote" rows="5" class="form-control">
-                                   {{ $slider->description }}</textarea>
+                                   <textarea name="description" id="summernote" rows="5" class="form-control"></textarea>
                               </div>
                               <div class="form-group">
                                    <label for="image">Image:</label>
                                    <input type="file" name="image" class="form-control">
-                                   <img src="{{ asset('assets/images/sliders/' . $slider->image) }}" alt="{{ $slider->title }}" style="width: 150px; height:auto;">
                               </div>
-                              <button type="submit" class="btn btn-success">Update</button>
+                              <button type="submit" class="btn btn-success">Add</button>
                          </form>
                     </div>
                </div>

@@ -35,7 +35,7 @@
                               @csrf
                               <div class="form-group">
                                    <label for="countryid">Country Id:</label>
-                                   <select class="form-select form-control" name="countryid" aria-label="Default select example">
+                                   <select class="form-select form-control" name="countryid" aria-label="Country">
                                       @foreach($countries as $country)
                                         <option value="{{ $country->id }}" {{ old('country_id', $countryinfo->country_id) == $country->id   ? 'selected' : '' }} >{{ $country->country }}</option>
                                       @endforeach

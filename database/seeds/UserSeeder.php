@@ -13,10 +13,20 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        $user= App\User::create([
             'name' => 'Ricky Maharjan',
             'email' => 'maharjanricky@gmail.com',
             'password' => Hash::make('password'),
+            'admin' => 1,
         ]);
+
+        App\Models\Profile::create([
+            'user_id'=>$user->id,
+             'avatar'=>'link of image',
+             'about'=>'This is about the user',
+             'facebook'=>'facebook.com',
+             'youtube'=>'youtube.com'
+         ]);
+     
     }
 }

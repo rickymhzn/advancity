@@ -98,7 +98,19 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
     Route::post('/counter/update/{id}','Admin\CounterController@update')->name('counter.update');
 	 //Settings
     Route::get('/settings','Admin\SettingController@index')->name('settings');
-    Route::post('/setting/update/{id}','Admin\SettingController@update')->name('setting.update');
+	Route::post('/setting/update/{id}','Admin\SettingController@update')->name('setting.update');
+	//Users
+	Route::get('/users', 'Admin\UsersController@index')->name('admin.users');
+	Route::get('/user/create', 'Admin\UsersController@create')->name('admin.user.create');
+	Route::post('/user/store', 'Admin\UsersController@store')->name('admin.user.store');
+	Route::get('/user/edit/{id}', 'Admin\UsersController@edit')->name('admin.user.edit');
+	Route::post('/user/update/{id}', 'Admin\UsersController@update')->name('admin.user.update');
+	Route::get('/user/delete/{id}', 'Admin\UsersController@destroy')->name('admin.user.destroy');
+	Route::get('/user/admin/{id}', 'Admin\UsersController@admin')->name('admin.user.admin');
+	Route::get('/user/notadmin/{id}', 'Admin\UsersController@notadmin')->name('admin.user.notadmin');
+	// Profile
+	Route::get('/user/profile', 'Admin\ProfilesController@index')->name('admin.user.profile');
+	Route::post('/user/profile/update', 'Admin\ProfilesController@update')->name('admin.user.profile.update');
 });
 
 // Frontend

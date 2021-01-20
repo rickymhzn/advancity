@@ -112,6 +112,30 @@
                     <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
                </div>
           </li>
+           <!-- Notifications Dropdown Menu -->
+           <li class="nav-item dropdown">
+               <a class="nav-link" data-toggle="dropdown" href="#">
+               <img src="{{ asset('assets/images/users') }}/{{ Auth::user()->profile->avatar }}" alt="
+               image" style="width: 30px; height:30px;display: inline-block;border-radius: 50%;">
+ {{ Auth::user()->name }}
+ 
+               </a>
+               <div class="dropdown-menu dropdown-menu-md dropdown-menu-right">
+                    <a href="{{ route('admin.user.profile') }}" class="dropdown-item">
+                    <i class="far fa-id-badge mr-2"></i> Profile
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt mr-2"></i>
+                                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                    
+               </div>
+          </li>
           <li class="nav-item">
                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
                          class="fas fa-th-large"></i></a>

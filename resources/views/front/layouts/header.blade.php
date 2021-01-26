@@ -41,7 +41,7 @@
                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="nav navbar-nav navbar-right">
                          <li>
-                              <a class="color-black" href="./index.html">Home</a>
+                              <a class="color-black" href="{{ route('index') }}">Home</a>
                          </li>
 
                          <li class="dropdown">

@@ -94,8 +94,12 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
 	Route::post('/testimonial/update/{id}', 'Admin\TestimonialsController@update')->name('admin.testimonial.update');
 	Route::get('/testimonial/delete/{id}', 'Admin\TestimonialsController@destroy')->name('admin.testimonial.destroy');
 	// Counter
-	Route::get('/counter','Admin\CounterController@index')->name('counter');
-    Route::post('/counter/update/{id}','Admin\CounterController@update')->name('counter.update');
+	Route::get('/counters', 'Admin\CounterController@index')->name('admin.counters');
+	Route::get('/counter/create', 'Admin\CounterController@create')->name('admin.counter.create');
+	Route::post('/counter/store', 'Admin\CounterController@store')->name('admin.counter.store');
+	Route::get('/counter/edit/{id}', 'Admin\CounterController@edit')->name('admin.counter.edit');
+	Route::post('/counter/update/{id}', 'Admin\CounterController@update')->name('admin.counter.update');
+	Route::get('/counter/delete/{id}', 'Admin\CounterController@destroy')->name('admin.counter.destroy');
 	 //Settings
     Route::get('/settings','Admin\SettingController@index')->name('settings');
 	Route::post('/setting/update/{id}','Admin\SettingController@update')->name('setting.update');
@@ -122,6 +126,8 @@ Route::get('/study-abroad', 'Front\HomeController@studyabroad')->name('studyabro
 Route::get('/our-courses', 'Front\HomeController@ourcourses')->name('ourcourses');
 Route::get('/schoolarship', 'Front\HomeController@schoolarship')->name('schoolarship');
 Route::get('/contact-us', 'Front\HomeController@contactus')->name('contactus');
+Route::get('/destinations', 'Front\HomeController@destinations')->name('destinations');
+Route::get('/destinations/{country}', 'Front\HomeController@singleDestination')->name('single.destination');
 
 
 

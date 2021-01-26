@@ -83,7 +83,7 @@
                     @foreach( $countries as $country)
                     <div class="col-md-4">
                          <div class="content">
-                              <a href="#">
+                              <a href="{{ route('single.destination',['country' => $country->country]) }}">
                                    <div class="content-overlay"></div>
                                    <img class="content-image"
                                         src="{{ asset('assets/images/country/' . $country->image) }}" alt="">
@@ -97,7 +97,7 @@
                     @endforeach
                </div>
                <div class="text-center view-all">
-                    <a class="view" type="button">View All</a>
+                    <a class="view" type="button" href="{{ route('destinations') }}">View All</a>
                </div>
           </div>
      </div>
@@ -109,47 +109,24 @@
           <h3>TEST PREPARATION</h3>
           <h6 class="test-prepare">Upstart your educational journey abroad with our test preparation classes
           </h6>
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <ul class="nav nav-tabs" id="testSubjectTab" role="tablist">
                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                         aria-controls="home" aria-selected="true">
-                         <img class="image-responsive" src="./img/ilets.jpg" alt="">
+               @foreach($testSubjects as $testsubject)
+                    <a class="nav-link active" id="testSubject-tab" data-toggle="tab" href="#subject-{{ $testsubject->id }}" role="tab"
+                         aria-controls="testSubject" aria-selected="true">
+                         <img class="image-fluid" src="{{ asset('assets/images/subject/thumb/' . $testsubject->thumbnail) }}" alt="{{ $testsubject->name }}">
                     </a>
-               </li>
-               <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                         aria-controls="profile" aria-selected="false">
-                         <img class="image-responsive" src="./img/tofel.png" alt="">
-                    </a>
-               </li>
-               <li class="nav-item">
-                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                         aria-controls="contact" aria-selected="false">
-                         <img class="image-responsive" src="./img/sat.jpg" alt="">
-                    </a>
+               @endforeach
                </li>
           </ul>
           <div class="tab-content" id="myTabContent">
-               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          @foreach($testSubjects as $testsubject)
+               <div class="tab-pane fade {{ $loop->first ? 'show' : '' }} {{ $loop->first ? 'active' : '' }}" id="subject-{{ $testsubject->id }}" role="tabpanel" aria-labelledby="testSubject-tab">
                     <div class="row">
                          <div class="col-md-6">
                               <span>
-                                   <h3>ILETS</h3>
-                                   <p>Our IELTS classes are tailored to suit all types of trainees. Hence, we have
-                                        successfully set the benchmark of regular score of band 7 and above. Our some
-                                        students have score 8.5 which can be found
-                                        online:https://www.youtube.com/watch?v=9Xd-q8pYkcI
-                                        We believe in the philosophy of score and nothing less than that. Following this
-                                        philosophy we have moved steps further from traditional IELTS class set up, for
-                                        we have designed an additional lesson to help improve the non English background
-                                        test takers to pull them up to the level of English background ones. This means
-                                        we have developed an overall score growth program that all traditional centers
-                                        lack. As one of the most prominent abroad study consultants, we are well aware
-                                        of the fact what a 7.0+ score means to an abroad study aspirant. We also know
-                                        that scoring 7.0+ in each band catapults a candidate’s possibilities in all
-                                        academically prominent nations. Therefore, we have appointed instructors who
-                                        have tremendous knowledge of the Test and have necessary training and
-                                        certification.</p>
+                                   <h3>{{ $testsubject->name }}</h3>
+                                   {!! $testsubject->description !!}
                               </span>
                          </div>
                          <div class="col-md-6">
@@ -238,50 +215,7 @@
                     </div>
 
                </div>
-               <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <span>
-                         <h3>TOEFL</h3>
-                         <p>TOEFL (Test of English as a Foreign Language) is administered by ETS and is a major
-                              requirement for non-native speakers of English who wish to pursue their Higher Studies
-                              either Undergraduate or Graduate including the reseach in the US and some other
-                              English-speaking countries. In Nepal, TOEFL test is administered by different test centers
-                              as authorized by the ETS. Education Asia guides the students aspiring to pursue studies in
-                              the English medium universities and the colleges to prepare for the TOEFL test. Education
-                              Asia offers different versions of the TOEFL Test such as iBT (internet Based Test) & PBT
-                              (Paper Based Test). TOEFL is a six-week course two hours a day including the instruction
-                              and the lab work at Education Asia. Education Asia faculty closely mentor and facilitate
-                              the learning and the lab work of the students so that they get acquainted with the
-                              techniques and tactics to do excellent in the real test. Education Asia also helps the
-                              students to register for the TOEFL Test and admission at American universities. Students
-                              can take our TOEFL classes visiting our study center or online. Please call us for further
-                              information. Helpline: 9801115600, 01-4267889
-                              The TOEFL iBT test is scored on a scale of 0 to 120 points. Each of the four sections
-                              (Reading, Listening, Speaking, Writing) receives a scaled score from 0 to 30. More than
-                              11,000 universities & other institutions in over 150 countries accept TOEFL® scores.</p>
-                    </span>
-               </div>
-               <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                    <span>
-                         <h3>TOEFL</h3>
-                         <p>TOEFL (Test of English as a Foreign Language) is administered by ETS and is a major
-                              requirement for non-native speakers of English who wish to pursue their Higher Studies
-                              either Undergraduate or Graduate including the reseach in the US and some other
-                              English-speaking countries. In Nepal, TOEFL test is administered by different test centers
-                              as authorized by the ETS. Education Asia guides the students aspiring to pursue studies in
-                              the English medium universities and the colleges to prepare for the TOEFL test. Education
-                              Asia offers different versions of the TOEFL Test such as iBT (internet Based Test) & PBT
-                              (Paper Based Test). TOEFL is a six-week course two hours a day including the instruction
-                              and the lab work at Education Asia. Education Asia faculty closely mentor and facilitate
-                              the learning and the lab work of the students so that they get acquainted with the
-                              techniques and tactics to do excellent in the real test. Education Asia also helps the
-                              students to register for the TOEFL Test and admission at American universities. Students
-                              can take our TOEFL classes visiting our study center or online. Please call us for further
-                              information. Helpline: 9801115600, 01-4267889
-                              The TOEFL iBT test is scored on a scale of 0 to 120 points. Each of the four sections
-                              (Reading, Listening, Speaking, Writing) receives a scaled score from 0 to 30. More than
-                              11,000 universities & other institutions in over 150 countries accept TOEFL® scores.</p>
-                    </span>
-               </div>
+          @endforeach
           </div>
      </div>
 </div>

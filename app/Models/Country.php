@@ -3,11 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Country extends Model
 {
-    protected $fillable = ['country','description','image','thumbnail'];
+    use Sluggable;
+    protected $fillable = ['country','slug','description','image','thumbnail'];
 
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'country'
+            ]
+        ];
+    }
     public function countryinfos()
     {
         return $this->hasMany(\App\Models\CountryInfo::class, 'country_id');

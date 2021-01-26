@@ -15,17 +15,10 @@ class CreateCountersTable extends Migration
     {
         Schema::create('counters', function (Blueprint $table) {
             $table->id();
-            $table->string('background')->nullable();
+            $table->integer('order');
+            $table->string('icon');
             $table->string('title');
-            $table->string('subtitle')->nullable();
-            $table->string('name1');
-            $table->integer('value1');
-            $table->string('name2');
-            $table->integer('value2');
-            $table->string('name3')->nullable();
-            $table->integer('value3')->nullable();
-            $table->string('name4')->nullable();
-            $table->integer('value4')->nullable();
+            $table->integer('value');
             $table->timestamps();
         });
     }

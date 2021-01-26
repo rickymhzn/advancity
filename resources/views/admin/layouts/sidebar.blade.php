@@ -110,7 +110,7 @@
                          </a>
                     </li>
                     <li class="nav-item">
-                         <a href="{{ route('counter') }}" class="nav-link">
+                         <a href="{{ route('admin.counters') }}" class="nav-link">
                          <i class="fas fa-stopwatch-20"></i>
                               <p>Counter</p>
                          </a>

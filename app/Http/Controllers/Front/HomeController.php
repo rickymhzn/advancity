@@ -8,6 +8,7 @@ use App\Models\Slider;
 use App\Models\Country;
 use App\Models\University;
 use App\Models\Team;
+use App\Models\Subject;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,8 @@ class HomeController extends Controller
         $countries = Country::orderBy('id','asc')->limit(6)->get();
         $universities = University::orderBy('id','asc')->limit(6)->get();
         $teams = Team::orderBy('id','asc')->get();
-        return view('front.index',compact('sliders','countries','universities','teams'));
+        $testSubjects = Subject::whereIn('course_id', [1])->get();
+        return view('front.index',compact('sliders','countries','universities','teams','testSubjects'));
     }
     public function about(){
         return view('front.about');
@@ -39,5 +41,14 @@ class HomeController extends Controller
     }
     public function contactus(){
         return view('front.contactus');
+    }
+    public function destinations(){
+        $countries = Country::orderBy('id','asc')->get();
+        return view('front.destinations',compact('countries'));
+    }
+    public function singleDestination($country){
+        $country = Country::findOrFail($country);
+        dd($country);
+        //return view('front.singleDestination',compact('country'));
     }
 }

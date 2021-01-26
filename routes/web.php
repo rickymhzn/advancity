@@ -115,6 +115,13 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
 
 // Frontend
 Route::get('/', 'Front\HomeController@index')->name('index');
+Route::get('/about', 'Front\HomeController@about')->name('about');
+Route::get('/ourteam', 'Front\HomeController@ourteam')->name('ourteam');
+Route::get('/services', 'Front\HomeController@services')->name('services');
+Route::get('/study-abroad', 'Front\HomeController@studyabroad')->name('studyabroad');
+Route::get('/our-courses', 'Front\HomeController@ourcourses')->name('ourcourses');
+Route::get('/schoolarship', 'Front\HomeController@schoolarship')->name('schoolarship');
+Route::get('/contact-us', 'Front\HomeController@contactus')->name('contactus');
 
 
 

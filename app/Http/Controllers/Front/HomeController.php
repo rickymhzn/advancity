@@ -19,4 +19,25 @@ class HomeController extends Controller
         $teams = Team::orderBy('id','asc')->get();
         return view('front.index',compact('sliders','countries','universities','teams'));
     }
+    public function about(){
+        return view('front.about');
+    }
+    public function ourteam(){
+        return view('front.ourteam');
+    }
+    public function services(){
+        return view('front.services');
+    }
+    public function studyabroad(){
+        return view('front.studyabroad');
+    }
+    public function ourcourses(){
+        return view('front.ourcourses');
+    }
+    public function schoolarship(){
+        return view('front.schoolarship');
+    }
+    public function contactus(){
+        return view('front.contactus');
+    }
 }

@@ -138,7 +138,7 @@ class UniversitiesController extends Controller
         {    
             @unlink(public_path('assets/images/university/logo/'.$university->logo));  
            $file2 = $request->file('logo');
-           $logo = time().$file->getClientOriginalName();
+           $logo = time().$file2->getClientOriginalName();
            $file2->move('assets/images/university/logo',$logo);           
            $university->logo = $logo;
        } 

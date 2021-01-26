@@ -19,8 +19,8 @@ class CounterController extends Controller
      */
     public function index()
     {
-        $counter = Counter::first();
-        return view('admin.counter',compact('counter'));
+        $counters = Counter::orderBy('id','asc')->get();
+        return view('admin.counter.index',compact('counters'));
     }
 
     /**
@@ -30,7 +30,7 @@ class CounterController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.counter.create');
     }
 
     /**
@@ -41,7 +41,27 @@ class CounterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //--- Validation Section
+        $this->validate($request,[
+            'icon'      => 'required',
+            'title'       => 'required',
+            'value'       => 'required',
+                   
+        ]);
+        //--- Validation Section Ends 
+         //--- Logic Section
+        $counter = new Counter();
+        $counter->icon = $request->icon;
+        $counter->title = $request->title;
+        $counter->value = $request->value;
+      
+                  
+        //--- Logic Section Ends
+        //--- Redirect Section   
+        if(  $counter->save() ){
+            return redirect()->back()->with('success',"Counter Created Successfully");
+        }
+        //--- Redirect Section Ends 
     }
 
     /**
@@ -63,7 +83,8 @@ class CounterController extends Controller
      */
     public function edit($id)
     {
-        //
+        $counter = Counter::findOrFail($id);
+        return view('admin.counter.edit',compact('counter'));
     }
 
     /**
@@ -77,37 +98,19 @@ class CounterController extends Controller
     {
         //--- Validation Section
         $this->validate($request,[
-            'background'      => 'mimes:jpeg,jpg,png,svg',
+            'icon'      => 'required',
             'title'       => 'required',
-            'name1'       => 'required',
-            'value1'=> 'required',
-            'name2'       => 'required',
-            'value2'=> 'required',
-                        
+            'value'       => 'required',
+                   
         ]);
         //--- Validation Section Ends 
          //--- Logic Section
         $counter = Counter::findOrFail($id);
+        $counter->icon = $request->icon;
         $counter->title = $request->title;
-        $counter->subtitle = $request->subtitle;
-        $counter->name1 = $request->name1;
-        $counter->value1 = $request->value1;
-        $counter->name2 = $request->name2;
-        $counter->value2 = $request->value2;
-        $counter->name3 = $request->name3;
-        $counter->value3 = $request->value3;
-        $counter->name4 = $request->name4;
-        $counter->value4 = $request->value4;
-
-        if($request->file('background')){
-            @unlink(public_path('/assets/images/counter/'.$counter->background));
-            $file = $request->file('background');
-            $background = time().$file->getClientOriginalName();
-            $file->move('assets/images/counter',$background);           
-            $counter->background = $background;
-
-        }
-                   
+        $counter->value = $request->value;
+      
+                  
         //--- Logic Section Ends
         //--- Redirect Section   
         if(  $counter->save() ){

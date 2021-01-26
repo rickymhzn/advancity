@@ -3,8 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Page extends Model
 {
-    protected $fillable = ['title','image','description','btnname','btnlink'];
+    use Sluggable;
+    protected $fillable = ['title','slug','image','description','btnname','btnlink'];
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 }

@@ -51,7 +51,7 @@
                               <div class="form-group">
                                    <label for="description">Description:</label>
                                    <textarea name="description" id="summernote" rows="5" class="form-control">
-                                   {{ $subject->description }}</textarea>
+                                   {!! $subject->description !!}</textarea>
                               </div>
                               <div class="form-group">
                                    <label for="image">Image:</label>

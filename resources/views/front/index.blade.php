@@ -239,6 +239,9 @@
                     <a type="button">View Profile</a>
                </div>
           </div>
+          <div class="text-center">
+               <a class="view" type="button">View All</a>
+          </div>
      </div>
      @endforeach
 </div>
@@ -247,26 +250,15 @@
 <section class="counter-section">
      <div class="container">
           <div class="row">
-               <div class="four col-md-3">
-                    <div class="counter-box colored"> <i class="fa fa-university"></i> <span class="counter">200+</span>
-                         <p>Institutions</p>
+         
+          @foreach($counters as $counter)
+               <div class="four col">
+                    <div class="counter-box colored"> <i class="{{ $counter->icon }}"></i> <span class="counter">{{ $counter->value }}+</span>
+                         <p>{{ $counter->title }}</p>
                     </div>
                </div>
-               <div class="four col-md-3">
-                    <div class="counter-box"> <i class="fa fa-group"></i> <span class="counter">2000+</span>
-                         <p>Students</p>
-                    </div>
-               </div>
-               <div class="four col-md-3">
-                    <div class="counter-box"> <i class="fa fa-flag"></i> <span class="counter">8+</span>
-                         <p>Countries</p>
-                    </div>
-               </div>
-               <div class="four col-md-3">
-                    <div class="counter-box"> <i class="fa fa-book"></i> <span class="counter">3000+</span>
-                         <p>courses</p>
-                    </div>
-               </div>
+          @endforeach
+         
           </div>
      </div>
 </section>
@@ -307,41 +299,24 @@
           <div class="heading white-heading">
                Testimonial
           </div>
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div id="testimonialSlider" class="carousel slide" data-ride="carousel">
                <div class="carousel-inner">
-                    <div class="carousel-item active">
+               @foreach($testimonials as $testimonial)
+                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                          <div class="testimonial4_slide">
-                              <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" />
-                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                   has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                   printer took a galley of type and scrambled it to make a type specimen book. </p>
-                              <h4>Client 1</h4>
+                              <img src="{{ asset('assets/images/testimonial/' . $testimonial->image) }}" class="img-circle img-fluid" alt="{{ $testimonial->name }}"/>
+                              {!! $testimonial->description !!}
+                              <h4>{ $testimonial->name }}</h4>
+                              <p>{{ $testimonial->subtitle }}</p>
                          </div>
                     </div>
-                    <div class="carousel-item">
-                         <div class="testimonial4_slide">
-                              <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" />
-                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                   has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                   printer took a galley of type and scrambled it to make a type specimen book. </p>
-                              <h4>Client 2</h4>
-                         </div>
-                    </div>
-                    <div class="carousel-item">
-                         <div class="testimonial4_slide">
-                              <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" />
-                              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                                   has been the industry's standard dummy text ever since the 1500s, when an unknown
-                                   printer took a galley of type and scrambled it to make a type specimen book. </p>
-                              <h4>Client 3</h4>
-                         </div>
-                    </div>
+               @endforeach                                                            
                </div>
-               <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+               <a class="carousel-control-prev" href="#testimonialSlider" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                </a>
-               <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+               <a class="carousel-control-next" href="#testimonialSlider" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                </a>

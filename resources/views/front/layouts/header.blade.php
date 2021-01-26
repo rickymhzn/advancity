@@ -47,15 +47,15 @@
                          <li class="dropdown">
                               <a class="dropbtn color-black">About &nbsp;<i class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu" id="#dropdownmenu">
-                                   <li><a href='{{route ('about')}}' style="padding-left:15px">Introduction</a></li>
-                                   <li><a href='{{route ('ourteam')}}' style="padding-left:15px">Our Team</a></li>
+                                   <li><a href="{{route ('about')}}" style="padding-left:15px">Introduction</a></li>
+                                   <li><a href="{{route ('ourteam')}}" style="padding-left:15px">Our Team</a></li>
                               </ul>
                          </li>
                          <li class="dropdown">
                               <a class="dropbtn color-black" href="#">Our Services&nbsp;<i
                                         class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu">
-                                   <li><a href='{{route('services')}}' style="padding-left:15px">Career
+                                   <li><a href="{{route('services')}}" style="padding-left:15px">Career
                                              Counselling</a></li>
                                    <li><a href="#" style="padding-left:15px">University Selection</a></li>
                                    <li><a href="#" style="padding-left:15px">Scholarship Assistance</a></li>
@@ -73,7 +73,7 @@
                               <a class="dropbtn color-black" href="#">Study Abroad&nbsp;<i
                                         class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu">
-                                   <li><a href='{{route('studyabroad')}}' style="padding-left:15px">Australia</a></li>
+                                   <li><a href="{{route('studyabroad')}}" style="padding-left:15px">Australia</a></li>
                                    <li><a href="#" style="padding-left:15px">New Zealand</a></li>
                                    <li><a href="#" style="padding-left:15px">UK</a></li>
                                    <li><a href="#" style="padding-left:15px">USA</a></li>
@@ -88,7 +88,7 @@
                               <a class="dropbtn color-black" href="#">Our Courses&nbsp;<i
                                         class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu">
-                                   <li><a href='{{route('ourcourses')}}' style="padding-left:15px">Test Preparation</a>
+                                   <li><a href="{{route('ourcourses')}}" style="padding-left:15px">Test Preparation</a>
                                    </li>
                                    <li><a href="#" style="padding-left:15px">English Language</a></li>
                                    <li><a href="#" style="padding-left:15px">Online Degree</a></li>
@@ -98,7 +98,7 @@
                               <a class="dropbtn color-black" href="#">Scholarships&nbsp;<i
                                         class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu">
-                                   <li><a href='{{route('schoolarship')}}' style="padding-left:15px">Scholarships in
+                                   <li><a href="{{route('schoolarship')}}" style="padding-left:15px">Scholarships in
                                              USA</a></li>
                                    <li><a href="#" style="padding-left:15px">Scholarships in UK</a></li>
                                    <li><a href="#" style="padding-left:15px">Scholarships in Canada</a></li>
@@ -109,7 +109,7 @@
                               </ul>
                          </li>
                          <li class="dropdown dmenu">
-                              <a class="dropbtn color-black" href='{{route('contactus')}}'>Contact Us</a>
+                              <a class="dropbtn color-black" href="{{route('contactus')}}">Contact Us</a>
 
                          </li>
                     </ul>

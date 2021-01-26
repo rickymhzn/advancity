@@ -9,6 +9,8 @@ use App\Models\Country;
 use App\Models\University;
 use App\Models\Team;
 use App\Models\Subject;
+use App\Models\Counter;
+use App\Models\Testimonial;
 
 class HomeController extends Controller
 {
@@ -19,7 +21,9 @@ class HomeController extends Controller
         $universities = University::orderBy('id','asc')->limit(6)->get();
         $teams = Team::orderBy('id','asc')->get();
         $testSubjects = Subject::whereIn('course_id', [1])->get();
-        return view('front.index',compact('sliders','countries','universities','teams','testSubjects'));
+        $counters = Counter::orderBy('order','asc')->get();
+        $testimonials = Testimonial::orderBy('id','desc')->limit(6)->get();
+        return view('front.index',compact('sliders','countries','universities','teams','testSubjects','counters','testimonials'));
     }
     public function about(){
         return view('front.about');
@@ -30,7 +34,7 @@ class HomeController extends Controller
     }
     public function singleTeam($slug){
         $team =  Team::whereSlug($slug)->get();
-        return view('front.teamProfile',compact('team'));
+        return view('front.single.teamProfile',compact('team'));
     }
     public function services(){
         return view('front.services');
@@ -53,7 +57,6 @@ class HomeController extends Controller
     }
     public function singleDestination($country){
         $country = Country::findOrFail($country);
-        dd($country);
-        //return view('front.singleDestination',compact('country'));
+        return view('front.single.singleDestination',compact('country'));
     }
 }

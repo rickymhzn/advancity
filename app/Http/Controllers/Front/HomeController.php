@@ -25,7 +25,12 @@ class HomeController extends Controller
         return view('front.about');
     }
     public function ourteam(){
-        return view('front.ourteam');
+        $teams = Team::orderBy('id','asc')->get();
+        return view('front.ourteam',compact('teams'));
+    }
+    public function singleTeam($slug){
+        $team =  Team::whereSlug($slug)->get();
+        return view('front.teamProfile',compact('team'));
     }
     public function services(){
         return view('front.services');

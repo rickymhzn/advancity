@@ -8,7 +8,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Country extends Model
 {
     use Sluggable;
-    protected $fillable = ['country','slug','description','image','thumbnail'];
+    protected $fillable = ['country','slug','description','image','thumbnail','scholarship_detail'];
 
     public function sluggable(): array
     {
@@ -25,5 +25,9 @@ class Country extends Model
     public function universities()
     {
         return $this->hasMany(\App\Models\University::class, 'country_id');
+    }
+    public function scholarships()
+    {
+        return $this->hasMany(\App\Models\Scholarship::class, 'country_id');
     }
 }

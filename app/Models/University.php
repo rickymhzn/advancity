@@ -21,5 +21,9 @@ class University extends Model
     {
         return $this->belongsTo(\App\Models\Country::class, 'country_id');
     }
+    public function scholarships()
+    {
+        return $this->hasMany(\App\Models\Scholarship::class, 'university_id');
+    }
   
 }

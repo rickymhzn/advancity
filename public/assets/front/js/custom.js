@@ -1,35 +1,3 @@
-// $(document).ready(function() {
-//     $(".navbar-light .dmenu").hover(
-//         function() {
-//             $(this)
-//                 .find(".sm-menu")
-//                 .first()
-//                 .stop(true, true)
-//                 .slideDown(150);
-//         },
-//         function() {
-//             $(this)
-//                 .find(".sm-menu")
-//                 .first()
-//                 .stop(true, true)
-//                 .slideUp(105);
-//         }
-//     );
-// });
-
-// //option
-// $(".panel-collapse").on("show.bs.collapse", function() {
-//     $(this)
-//         .siblings(".panel-heading")
-//         .addClass("active");
-// });
-
-// $(".panel-collapse").on("hide.bs.collapse", function() {
-//     $(this)
-//         .siblings(".panel-heading")
-//         .removeClass("active");
-// });
-
 //slider
 $(document).ready(function() {
     $(".multiple-items").slick({

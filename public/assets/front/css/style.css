@@ -5,6 +5,10 @@ body {
 .col-md-4 {
     padding-top: 15px;
 }
+.img-fluid{
+    width: 100%;
+    height: auto;
+}
 a {
     text-decoration: none !important;
     color: #fff !important;

@@ -22,4 +22,8 @@ class Subject extends Model
     {
         return $this->belongsTo(\App\Models\Course::class, 'course_id');
     }
+    public function subjectinfos()
+    {
+        return $this->hasMany(\App\Models\SubjectInfo::class, 'subject_id');
+    }
 }

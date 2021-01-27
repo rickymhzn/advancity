@@ -122,13 +122,13 @@ Route::get('/', 'Front\HomeController@index')->name('index');
 Route::get('/about', 'Front\HomeController@about')->name('about');
 Route::get('/ourteam', 'Front\HomeController@ourteam')->name('ourteam');
 Route::get('/ourteam/{slug}', 'Front\HomeController@singleTeam')->name('single.team');
-Route::get('/services', 'Front\HomeController@services')->name('services');
-Route::get('/study-abroad', 'Front\HomeController@studyabroad')->name('studyabroad');
-Route::get('/our-courses', 'Front\HomeController@ourcourses')->name('ourcourses');
+Route::get('/service/{slug}', 'Front\HomeController@singleService')->name('single.service');
+Route::get('/universities', 'Front\HomeController@universities')->name('universities');
+Route::get('/ourcourses/{slug}', 'Front\HomeController@ourcourses')->name('ourcourses');
 Route::get('/schoolarship', 'Front\HomeController@schoolarship')->name('schoolarship');
 Route::get('/contact-us', 'Front\HomeController@contactus')->name('contactus');
 Route::get('/destinations', 'Front\HomeController@destinations')->name('destinations');
-Route::get('/destinations/{country}', 'Front\HomeController@singleDestination')->name('single.destination');
+Route::get('/destinations/{slug}', 'Front\HomeController@singleDestination')->name('single.destination');
 
 
 

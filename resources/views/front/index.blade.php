@@ -83,7 +83,7 @@
                     @foreach( $countries as $country)
                     <div class="col-md-4">
                          <div class="content">
-                              <a href="{{ route('single.destination',['country' => $country->country]) }}">
+                              <a href="{{ route('single.destination',['slug' => $country->slug]) }}">
                                    <div class="content-overlay"></div>
                                    <img class="content-image"
                                         src="{{ asset('assets/images/country/' . $country->image) }}" alt="">
@@ -236,15 +236,17 @@
                <div class="card-title">
                     <h4>{{ $team->name }}</h4>
                     <p>{{ $team->designation }}</p>
-                    <a type="button">View Profile</a>
+                    <a type="button" href="{{ route('single.team',['slug' => $team->slug]) }}">View Profile</a>
                </div>
           </div>
-          <div class="text-center">
-               <a class="view" type="button">View All</a>
-          </div>
+        
      </div>
      @endforeach
+     
 </div>
+<div class="text-center mb-5">
+               <a class="view" type="button" href="{{ route('ourteam') }}">View All</a>
+          </div>
 <!-- ourteam end -->
 <!-- counter -->
 <section class="counter-section">
@@ -270,7 +272,7 @@
           <div class='row pd-row1'>
                @foreach( $universities as $university)
                <div class='pd-area col-md-4'>
-                    <a href='{{ $university->website }}'>
+                    <a href="{{ $university->website }}" target="_blank">
                          <div class='effect-bubba pd-rec'><img class='img-reponsive'
                                    src="{{ asset('assets/images/university/' . $university->image) }}"
                                    alt="{{ $university->name }}" />
@@ -286,7 +288,7 @@
                @endforeach
           </div>
           <div class="text-center">
-               <a class="view" type="button">View All</a>
+               <a class="view" type="button" href="{{ route('universities') }}">View All</a>
           </div>
      </div>
 
@@ -306,7 +308,7 @@
                          <div class="testimonial4_slide">
                               <img src="{{ asset('assets/images/testimonial/' . $testimonial->image) }}" class="img-circle img-fluid" alt="{{ $testimonial->name }}"/>
                               {!! $testimonial->description !!}
-                              <h4>{ $testimonial->name }}</h4>
+                              <h4>{{ $testimonial->name }}</h4>
                               <p>{{ $testimonial->subtitle }}</p>
                          </div>
                     </div>

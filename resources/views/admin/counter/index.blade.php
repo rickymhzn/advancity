@@ -50,7 +50,7 @@ Counters
                                              <td>{{ $counter->order }}</td>
                                              <td><i class="{{ $counter->icon }}"></i></td>
                                              <td>{{ $counter->title }}</td>
-                                             <td>{{ $slider->value }}</td>
+                                             <td>{{ $counter->value }}</td>
                                              <td>
                                                   <a class="btn btn-sm btn-info" href="{{ route('admin.counter.edit',['id' => $counter->id]) }}">Edit</a>
                                                   <a class="btn btn-sm btn-danger" href="{{ route('admin.counter.destroy',['id' => $counter->id]) }}">Delete</a>

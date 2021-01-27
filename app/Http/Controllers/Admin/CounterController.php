@@ -43,6 +43,7 @@ class CounterController extends Controller
     {
         //--- Validation Section
         $this->validate($request,[
+            'order'      => 'required',
             'icon'      => 'required',
             'title'       => 'required',
             'value'       => 'required',
@@ -51,6 +52,7 @@ class CounterController extends Controller
         //--- Validation Section Ends 
          //--- Logic Section
         $counter = new Counter();
+        $counter->order = $request->order;
         $counter->icon = $request->icon;
         $counter->title = $request->title;
         $counter->value = $request->value;
@@ -59,7 +61,7 @@ class CounterController extends Controller
         //--- Logic Section Ends
         //--- Redirect Section   
         if(  $counter->save() ){
-            return redirect()->back()->with('success',"Counter Created Successfully");
+            return redirect()->route('admin.counters')->with('success',"Counter Created Successfully");
         }
         //--- Redirect Section Ends 
     }
@@ -98,6 +100,7 @@ class CounterController extends Controller
     {
         //--- Validation Section
         $this->validate($request,[
+            'order'      => 'required',
             'icon'      => 'required',
             'title'       => 'required',
             'value'       => 'required',
@@ -106,6 +109,7 @@ class CounterController extends Controller
         //--- Validation Section Ends 
          //--- Logic Section
         $counter = Counter::findOrFail($id);
+        $counter->order = $request->order;
         $counter->icon = $request->icon;
         $counter->title = $request->title;
         $counter->value = $request->value;
@@ -114,7 +118,7 @@ class CounterController extends Controller
         //--- Logic Section Ends
         //--- Redirect Section   
         if(  $counter->save() ){
-            return redirect()->back()->with('success',"Counter Updated Successfully");
+            return redirect()->route('admin.counters')->with('success',"Counter Updated Successfully");
         }
         //--- Redirect Section Ends 
     }
@@ -127,6 +131,9 @@ class CounterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $counter = Counter::findOrFail($id);
+
+        $counter->delete();
+        return redirect()->route('admin.counters')->with('error','Counter Deleted Successfully');
     }
 }

@@ -110,18 +110,23 @@
           <h6 class="test-prepare">Upstart your educational journey abroad with our test preparation classes
           </h6>
           <ul class="nav nav-tabs" id="testSubjectTab" role="tablist">
-               <li class="nav-item">
                @foreach($testSubjects as $testsubject)
-                    <a class="nav-link active" id="testSubject-tab" data-toggle="tab" href="#subject-{{ $testsubject->id }}" role="tab"
-                         aria-controls="testSubject" aria-selected="true">
-                         <img class="image-fluid" src="{{ asset('assets/images/subject/thumb/' . $testsubject->thumbnail) }}" alt="{{ $testsubject->name }}">
+               <li class="nav-item">
+                    <a class="nav-link active" id="subject-{{ $testsubject->id }}" data-toggle="tab"
+                         href="#subject-{{ $testsubject->id }}" role="tab" aria-controls="testSubject"
+                         aria-selected="true">
+                         <img class="image-fluid"
+                              src="{{ asset('assets/images/subject/thumb/' . $testsubject->thumbnail) }}"
+                              alt="{{ $testsubject->name }}">
                     </a>
-               @endforeach
                </li>
+               @endforeach
           </ul>
-          <div class="tab-content" id="myTabContent">
-          @foreach($testSubjects as $testsubject)
-               <div class="tab-pane fade {{ $loop->first ? 'show' : '' }} {{ $loop->first ? 'active' : '' }}" id="subject-{{ $testsubject->id }}" role="tabpanel" aria-labelledby="testSubject-tab">
+          <div class="tab-content">
+               @foreach($testSubjects as $testsubject)
+               <div class="tab-pane fade {{ $loop->first ? 'show' : '' }} {{ $loop->first ? 'active' : '' }}"
+                    id="subject-{{ $testsubject->id }}" role="tabpanel" data-toggle="tab"
+                    aria-labelledby="subject-{{ $testsubject->id }}">
                     <div class="row">
                          <div class="col-md-6">
                               <span>
@@ -215,7 +220,7 @@
                     </div>
 
                </div>
-          @endforeach
+               @endforeach
           </div>
      </div>
 </div>
@@ -239,28 +244,29 @@
                     <a type="button" href="{{ route('single.team',['slug' => $team->slug]) }}">View Profile</a>
                </div>
           </div>
-        
+
      </div>
      @endforeach
-     
+
 </div>
 <div class="text-center mb-5">
-               <a class="view" type="button" href="{{ route('ourteam') }}">View All</a>
-          </div>
+     <a class="view" type="button" href="{{ route('ourteam') }}">View All</a>
+</div>
 <!-- ourteam end -->
 <!-- counter -->
 <section class="counter-section">
      <div class="container">
           <div class="row">
-         
-          @foreach($counters as $counter)
+
+               @foreach($counters as $counter)
                <div class="four col">
-                    <div class="counter-box colored"> <i class="{{ $counter->icon }}"></i> <span class="counter">{{ $counter->value }}+</span>
+                    <div class="counter-box colored"> <i class="{{ $counter->icon }}"></i> <span
+                              class="counter">{{ $counter->value }}+</span>
                          <p>{{ $counter->title }}</p>
                     </div>
                </div>
-          @endforeach
-         
+               @endforeach
+
           </div>
      </div>
 </section>
@@ -303,16 +309,17 @@
           </div>
           <div id="testimonialSlider" class="carousel slide" data-ride="carousel">
                <div class="carousel-inner">
-               @foreach($testimonials as $testimonial)
+                    @foreach($testimonials as $testimonial)
                     <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                          <div class="testimonial4_slide">
-                              <img src="{{ asset('assets/images/testimonial/' . $testimonial->image) }}" class="img-circle img-fluid" alt="{{ $testimonial->name }}"/>
+                              <img src="{{ asset('assets/images/testimonial/' . $testimonial->image) }}"
+                                   class="img-circle img-fluid" alt="{{ $testimonial->name }}" />
                               {!! $testimonial->description !!}
                               <h4>{{ $testimonial->name }}</h4>
                               <p>{{ $testimonial->subtitle }}</p>
                          </div>
                     </div>
-               @endforeach                                                            
+                    @endforeach
                </div>
                <a class="carousel-control-prev" href="#testimonialSlider" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

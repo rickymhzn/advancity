@@ -47,17 +47,20 @@
                          <li class="dropdown">
                               <a class="dropbtn color-black">About &nbsp;<i class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu" id="#dropdownmenu">
-                                   <li><a href="{{route ('about')}}" style="padding-left:15px">Introduction</a></li>
-                                   <li><a href="{{route ('ourteam')}}" style="padding-left:15px">Our Team</a></li>
+                                   <li><a href="{{route ('about')}}"
+                                             style="padding-left:15px; display:block;">Introduction</a></li>
+                                   <li><a href="{{route ('ourteam')}}" style="padding-left:15px; display:block;">Our
+                                             Team</a></li>
                               </ul>
                          </li>
                          <li class="dropdown">
                               <a class="dropbtn color-black" href="#">Our Services&nbsp;<i
                                         class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu">
-                              @foreach($allServices as $service)
-                                   <li><a href="{{ route('single.service',['slug'=>$service->slug]) }}" style="padding-left:15px">{{ $service->title }}</a></li>
-                              @endforeach
+                                   @foreach($allServices as $service)
+                                   <li><a href="{{ route('single.service',['slug'=>$service->slug]) }}"
+                                             style="padding-left:15px; display:block;">{{ $service->title }}</a></li>
+                                   @endforeach
                               </ul>
                          </li>
                          <li class="dropdown">
@@ -65,7 +68,8 @@
                                         class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu">
                                    @foreach($allCountries as $country)
-                                   <li><a href="{{ route('single.destination',['slug'=>$country->slug]) }}" style="padding-left:15px">{{ $country->country}}</a></li>
+                                   <li><a href="{{ route('single.destination',['slug'=>$country->slug]) }}"
+                                             style="padding-left:15px; display:block;">{{ $country->country}}</a></li>
                                    @endforeach
                               </ul>
                          </li>
@@ -74,10 +78,11 @@
                               <a class="dropbtn color-black" href="#">Our Courses&nbsp;<i
                                         class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu">
-                              @foreach($allCourses as $course)
-                                   <li><a href="{{ route('ourcourses',['slug'=> $course->slug]) }}" style="padding-left:15px">{{ $course->name }}</a>
+                                   @foreach($allCourses as $course)
+                                   <li><a href="{{ route('ourcourses',['slug'=> $course->slug]) }}"
+                                             style="padding-left:15px; display:block;">{{ $course->name }}</a>
                                    </li>
-                              @endforeach
+                                   @endforeach
                               </ul>
                          </li>
                          <li class="dropdown">
@@ -86,12 +91,17 @@
                               <ul class="dropdown-menu">
                                    <li><a href="{{route('schoolarship')}}" style="padding-left:15px">Scholarships in
                                              USA</a></li>
-                                   <li><a href="#" style="padding-left:15px">Scholarships in UK</a></li>
-                                   <li><a href="#" style="padding-left:15px">Scholarships in Canada</a></li>
-                                   <li><a href="#" style="padding-left:15px">Scholarships in New Zealand</a></li>
-                                   <li><a href="#" style="padding-left:15px">Scholarships in Australia</a></li>
-                                   <li><a href="#" style="padding-left:15px">Scholarships in Netherlands</a></li>
-                                   <li><a href="#" style="padding-left:15px">Scholarships in India</a></li>
+                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in UK</a></li>
+                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in Canada</a>
+                                   </li>
+                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in New
+                                             Zealand</a></li>
+                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in
+                                             Australia</a></li>
+                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in
+                                             Netherlands</a></li>
+                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in India</a>
+                                   </li>
                               </ul>
                          </li>
                          <li class="dropdown dmenu">

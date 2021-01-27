@@ -26,8 +26,8 @@ a {
     float: left;
 }
 .header-logo {
-    height: 50px;
-    width: 150px;
+    height: 66px;
+    width: auto;
 }
 .top-nav .right {
     float: right;
@@ -87,10 +87,11 @@ a {
 .dropdown-menu > li {
     border-bottom: 1px solid #fff;
 }
-.dropdown-menu > ul > li > a {
+.dropdown-menu ul li a {
     color: #fff !important;
     padding-left: 25px !important;
     text-decoration: none;
+    display: block;
 }
 .dropdown:hover .dropdown-menu {
     display: block;

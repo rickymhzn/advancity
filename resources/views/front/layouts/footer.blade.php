@@ -79,4 +79,16 @@
                </div>
           </div>
      </div>
+     <div class="copyright">
+               <div class="container">
+               <div class="row">
+                         <div class="col-md-6">
+                              {{ $sitesetting->copyright }}
+                         </div>
+                         <div class="col-md-6">
+                              PoweredBy <a href="http://cosmioinfotech.com/" target="_blank">Cosmio Infotech</a> <span style="display:none;">Developed by Ricky Maharjan</span>
+                         </div>
+               </div>
+               </div>
+     </div>
 </footer>

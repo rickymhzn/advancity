@@ -15,6 +15,7 @@
                     <div class="col-12">
                   
                              {!! $country->description !!}
+                             <img class="img-fluid" src="{{ asset('assets/images/country/' . $country->image) }}" alt="{{ $country->country }}" >
                     </div>
                    
                </div>

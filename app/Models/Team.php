@@ -13,7 +13,7 @@ class Team extends Model
     {
         return [
             'slug' => [
-                'source' => 'name'
+                'source' => ['name', 'id']
             ]
         ];
     }

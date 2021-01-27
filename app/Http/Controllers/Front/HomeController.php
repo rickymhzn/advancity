@@ -11,6 +11,8 @@ use App\Models\Team;
 use App\Models\Subject;
 use App\Models\Counter;
 use App\Models\Testimonial;
+use App\Models\Course;
+use App\Models\Service;
 
 class HomeController extends Controller
 {
@@ -33,17 +35,21 @@ class HomeController extends Controller
         return view('front.ourteam',compact('teams'));
     }
     public function singleTeam($slug){
-        $team =  Team::whereSlug($slug)->get();
+        $team =  Team::whereSlug($slug)->first();
         return view('front.single.teamProfile',compact('team'));
     }
-    public function services(){
-        return view('front.services');
+    public function singleService(){
+        $service = Service::whereSlug($slug)->first();
+        return view('front.single.singleService',compact('service'));
     }
-    public function studyabroad(){
-        return view('front.studyabroad');
+    public function universities(){
+        $universities = University::orderBy('id','asc')->get();
+        return view('front.universities',compact('universities'));
     }
-    public function ourcourses(){
-        return view('front.ourcourses');
+    public function ourcourses($slug){
+        $course = Course::whereSlug($slug)->first();
+        $subjects = Subject::where('course_id',$course->id)->get();
+        return view('front.ourcourses',compact('course','subjects'));
     }
     public function schoolarship(){
         return view('front.schoolarship');
@@ -55,8 +61,8 @@ class HomeController extends Controller
         $countries = Country::orderBy('id','asc')->get();
         return view('front.destinations',compact('countries'));
     }
-    public function singleDestination($country){
-        $country = Country::findOrFail($country);
+    public function singleDestination($slug){
+        $country = Country::whereSlug($slug)->first();
         return view('front.single.singleDestination',compact('country'));
     }
 }

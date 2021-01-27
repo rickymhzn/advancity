@@ -55,32 +55,18 @@
                               <a class="dropbtn color-black" href="#">Our Services&nbsp;<i
                                         class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu">
-                                   <li><a href="{{route('services')}}" style="padding-left:15px">Career
-                                             Counselling</a></li>
-                                   <li><a href="#" style="padding-left:15px">University Selection</a></li>
-                                   <li><a href="#" style="padding-left:15px">Scholarship Assistance</a></li>
-                                   <li><a href="#" style="padding-left:15px">Application Process</a></li>
-                                   <li><a href="#" style="padding-left:15px">Financial Guidlines & GTE checks</a></li>
-                                   <li><a href="#" style="padding-left:15px">Interview Preparation</a></li>
-                                   <li><a href="#" style="padding-left:15px">Visa Application Lodgement</a></li>
-                                   <li><a href="#" style="padding-left:15px">Pre-Departure Session</a></li>
-                                   <li><a href="#" style="padding-left:15px">Accommodation & Airport Pick</a></li>
-                                   <li><a href="#" style="padding-left:15px">University Transfer</a></li>
-                                   <li><a href="#" style="padding-left:15px">VISA Extension</a></li>
+                              @foreach($allServices as $service)
+                                   <li><a href="{{ route('single.service',['slug'=>$service->slug]) }}" style="padding-left:15px">{{ $service->title }}</a></li>
+                              @endforeach
                               </ul>
                          </li>
                          <li class="dropdown">
-                              <a class="dropbtn color-black" href="#">Study Abroad&nbsp;<i
+                              <a class="dropbtn color-black" href="{{ route('destinations') }}">Study Abroad&nbsp;<i
                                         class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu">
-                                   <li><a href="{{route('studyabroad')}}" style="padding-left:15px">Australia</a></li>
-                                   <li><a href="#" style="padding-left:15px">New Zealand</a></li>
-                                   <li><a href="#" style="padding-left:15px">UK</a></li>
-                                   <li><a href="#" style="padding-left:15px">USA</a></li>
-                                   <li><a href="#" style="padding-left:15px">Canada</a></li>
-                                   <li><a href="#" style="padding-left:15px">Netherlands</a></li>
-                                   <li><a href="#" style="padding-left:15px">Germany</a></li>
-                                   <li><a href="#" style="padding-left:15px">India</a></li>
+                                   @foreach($allCountries as $country)
+                                   <li><a href="{{ route('single.destination',['slug'=>$country->slug]) }}" style="padding-left:15px">{{ $country->country}}</a></li>
+                                   @endforeach
                               </ul>
                          </li>
 
@@ -88,10 +74,10 @@
                               <a class="dropbtn color-black" href="#">Our Courses&nbsp;<i
                                         class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu">
-                                   <li><a href="{{route('ourcourses')}}" style="padding-left:15px">Test Preparation</a>
+                              @foreach($allCourses as $course)
+                                   <li><a href="{{ route('ourcourses',['slug'=> $course->slug]) }}" style="padding-left:15px">{{ $course->name }}</a>
                                    </li>
-                                   <li><a href="#" style="padding-left:15px">English Language</a></li>
-                                   <li><a href="#" style="padding-left:15px">Online Degree</a></li>
+                              @endforeach
                               </ul>
                          </li>
                          <li class="dropdown">

@@ -112,7 +112,7 @@
           <ul class="nav nav-tabs" id="testSubjectTab" role="tablist">
                @foreach($testSubjects as $testsubject)
                <li class="nav-item">
-                    <a class="nav-link active" id="subject-{{ $testsubject->id }}" data-toggle="tab"
+                    <a class="nav-link {{ $loop->first ? 'active' : '' }}" id="subject-{{ $testsubject->id }}-tab" data-toggle="tab"
                          href="#subject-{{ $testsubject->id }}" role="tab" aria-controls="testSubject"
                          aria-selected="true">
                          <img class="image-fluid"
@@ -124,9 +124,9 @@
           </ul>
           <div class="tab-content">
                @foreach($testSubjects as $testsubject)
-               <div class="tab-pane fade {{ $loop->first ? 'show' : '' }} {{ $loop->first ? 'active' : '' }}"
+               <div class="tab-pane fade {{ $loop->first ? 'active in show' : '' }}"
                     id="subject-{{ $testsubject->id }}" role="tabpanel" data-toggle="tab"
-                    aria-labelledby="subject-{{ $testsubject->id }}">
+                    aria-labelledby="subject-{{ $testsubject->id }}-tab">
                     <div class="row">
                          <div class="col-md-6">
                               <span>
@@ -135,22 +135,24 @@
                               </span>
                          </div>
                          <div class="col-md-6">
-                              <h3>The test at a glance: IELTS</h3>
+                              <h3>The test at a glance: {{ $testsubject->name }}</h3>
                               <div class="detail-toggle">
-                                   <div id="accordion">
+                                   <div id="testAccordion">
+                                   @foreach($testSubjectInfos as $testSubjectInfo)
+                                        @if( $testsubject->id == $testSubjectInfo->subject_id )
                                         <div class="card">
-                                             <div class="card-header" id="headingOne">
+                                             <div class="card-header" id="{{ $testSubjectInfo->subject->name}}-{{ $testSubjectInfo->id }}">
                                                   <h5 class="mb-0">
                                                        <button class="btn btn-link" data-toggle="collapse"
-                                                            data-target="#collapseOne" aria-expanded="true"
-                                                            aria-controls="collapseOne">
+                                                            data-target="#collapse-{{ $testSubjectInfo->subject->name}}-{{ $testSubjectInfo->id }}" aria-expanded="true"
+                                                            aria-controls="collapse-{{ $testSubjectInfo->subject->name}}-{{ $testSubjectInfo->id }}">
                                                             Scholarships in Australia for International Students:
                                                        </button>
                                                   </h5>
                                              </div>
 
-                                             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                                                  data-parent="#accordion">
+                                             <div id="collapse-{{ $testSubjectInfo->subject->name}}-{{ $testSubjectInfo->id }}" class="collapse {{ $loop->first ? 'show' : '' }}" aria-labelledby="{{ $testSubjectInfo->subject->name}}-{{ $testSubjectInfo->id }}"
+                                                  data-parent="#testAccordion">
                                                   <div class="card-body">
                                                        There are many grants, scholarships and bursaries available to
                                                        assist International students financially in Australia. The
@@ -162,58 +164,8 @@
                                                   </div>
                                              </div>
                                         </div>
-                                        <div class="card">
-                                             <div class="card-header" id="headingTwo">
-                                                  <h5 class="mb-0">
-                                                       <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                            data-target="#collapseTwo" aria-expanded="false"
-                                                            aria-controls="collapseTwo">
-                                                            Application Process
-                                                       </button>
-                                                  </h5>
-                                             </div>
-                                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
-                                                  data-parent="#accordion">
-                                                  <div class="card-body">
-                                                       Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                       accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                                       non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                                                       laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a
-                                                       bird on it squid single-origin coffee nulla assumenda shoreditch
-                                                       et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                                       cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                                       vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                                                       aesthetic synth nesciunt you probably haven't heard of them
-                                                       accusamus labore sustainable VHS.
-                                                  </div>
-                                             </div>
-                                        </div>
-                                        <div class="card">
-                                             <div class="card-header" id="headingThree">
-                                                  <h5 class="mb-0">
-                                                       <button class="btn btn-link collapsed" data-toggle="collapse"
-                                                            data-target="#collapseThree" aria-expanded="false"
-                                                            aria-controls="collapseThree">
-                                                            Entry Requirements/Eligibility
-                                                       </button>
-                                                  </h5>
-                                             </div>
-                                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                                                  data-parent="#accordion">
-                                                  <div class="card-body">
-                                                       Anim pariatur cliche reprehenderit, enim eiusmod high life
-                                                       accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                                                       non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                                                       laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a
-                                                       bird on it squid single-origin coffee nulla assumenda shoreditch
-                                                       et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson
-                                                       cred nesciunt sapiente ea proident. Ad vegan excepteur butcher
-                                                       vice lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                                                       aesthetic synth nesciunt you probably haven't heard of them
-                                                       accusamus labore sustainable VHS.
-                                                  </div>
-                                             </div>
-                                        </div>
+                                        @endif
+                                       @endforeach
                                    </div>
                               </div>
                          </div>
@@ -225,7 +177,6 @@
      </div>
 </div>
 <!-- test preparation end -->
-
 <!-- ourteam -->
 <div class="our-team">
      <h3>Meet our Team</h3>

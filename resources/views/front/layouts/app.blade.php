@@ -16,7 +16,7 @@
      <!-- Styles -->
      <link rel="stylesheet" type="text/css" href="{{ asset('assets/front/css/style.css') }}">
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-     <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/front/css/slick.css') }}" /> -->
+
      <!-- fontawesome -->
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
      <!-- slick -->
@@ -42,9 +42,6 @@
           integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous">
      </script>
      <script type="text/javascript" src="{{ asset('assets/front/js/slick.js') }}"></script>
-     <!-- <script type="text/javascript" src="{{ asset('assets/front/js/slick.min.js') }}"></script> -->
-     <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
-     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
      <script type="text/javascript" src="{{ asset('assets/front/js/custom.js') }}"></script>
      @yield('frontscripts')
 </body>

@@ -9,10 +9,12 @@ use App\Models\Country;
 use App\Models\University;
 use App\Models\Team;
 use App\Models\Subject;
+use App\Models\SubjectInfo;
 use App\Models\Counter;
 use App\Models\Testimonial;
 use App\Models\Course;
 use App\Models\Service;
+use App\Models\Scholarship;
 
 class HomeController extends Controller
 {
@@ -23,9 +25,11 @@ class HomeController extends Controller
         $universities = University::orderBy('id','asc')->limit(6)->get();
         $teams = Team::orderBy('id','asc')->get();
         $testSubjects = Subject::whereIn('course_id', [1])->get();
+        $testSubjectInfos = SubjectInfo::orderBy('id', 'asc')->get();
         $counters = Counter::orderBy('order','asc')->get();
         $testimonials = Testimonial::orderBy('id','desc')->limit(6)->get();
-        return view('front.index',compact('sliders','countries','universities','teams','testSubjects','counters','testimonials'));
+
+        return view('front.index',compact('sliders','countries','universities','teams','testSubjects','testSubjectInfos','counters','testimonials'));
     }
     public function about(){
         return view('front.about');
@@ -38,7 +42,7 @@ class HomeController extends Controller
         $team =  Team::whereSlug($slug)->first();
         return view('front.single.teamProfile',compact('team'));
     }
-    public function singleService(){
+    public function singleService($slug){
         $service = Service::whereSlug($slug)->first();
         return view('front.single.singleService',compact('service'));
     }
@@ -51,8 +55,10 @@ class HomeController extends Controller
         $subjects = Subject::where('course_id',$course->id)->get();
         return view('front.ourcourses',compact('course','subjects'));
     }
-    public function schoolarship(){
-        return view('front.schoolarship');
+    public function singleScholarship($country){
+        $country = Country::whereSlug($country)->first();
+        $scholarship = Scholarship::where('country_id',$country->id)->get();
+        return view('front.scholarship',compact('scholarship'));
     }
     public function contactus(){
         return view('front.contactus');

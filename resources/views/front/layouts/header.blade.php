@@ -89,19 +89,9 @@
                               <a class="dropbtn color-black" href="#">Scholarships&nbsp;<i
                                         class="fa fa-caret-down"></i></a>
                               <ul class="dropdown-menu">
-                                   <li><a href="{{route('schoolarship')}}" style="padding-left:15px">Scholarships in
-                                             USA</a></li>
-                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in UK</a></li>
-                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in Canada</a>
-                                   </li>
-                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in New
-                                             Zealand</a></li>
-                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in
-                                             Australia</a></li>
-                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in
-                                             Netherlands</a></li>
-                                   <li><a href="#" style="padding-left:15px; display:block;">Scholarships in India</a>
-                                   </li>
+                              @foreach( $allScholarships as $scholarship)
+                                   <li><a href="{{ route('single.scholarship',['country'=> $scholarship->country->slug]) }}" style="padding-left:15px">{{ $scholarship->title }}</a></li>
+                              @endforeach
                               </ul>
                          </li>
                          <li class="dropdown dmenu">

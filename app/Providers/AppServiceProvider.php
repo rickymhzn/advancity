@@ -9,6 +9,7 @@ use App\Models\Setting;
 use App\Models\Country;
 use App\Models\Course;
 use App\Models\Service;
+use App\Models\Scholarship;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -38,6 +39,8 @@ class AppServiceProvider extends ServiceProvider
         View::share('allCourses', $allCourses);
         $allServices=Service::orderBy('id','asc')->get();
         View::share('allServices', $allServices);
+        $allScholarships=Scholarship::orderBy('id','asc')->get();
+        View::share('allScholarships', $allScholarships);
         // // Get the currently authenticated user...
         // $currentuser = Auth::user()->with('profile');
         // View::share('currentuser', $currentuser);

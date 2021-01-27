@@ -37,6 +37,13 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
 	Route::get('/countryinfo/edit/{id}', 'Admin\CountryInfosController@edit')->name('admin.countryinfo.edit');
 	Route::post('/countryinfo/update/{id}', 'Admin\CountryInfosController@update')->name('admin.countryinfo.update');
 	Route::get('/countryinfo/delete/{id}', 'Admin\CountryInfosController@destroy')->name('admin.countryinfo.destroy');
+	  // Scholarships
+	  Route::get('/scholarships', 'Admin\ScholarshipsController@index')->name('admin.scholarships');
+	  Route::get('/scholarship/create', 'Admin\ScholarshipsController@create')->name('admin.scholarship.create');
+	  Route::post('/scholarship/store', 'Admin\ScholarshipsController@store')->name('admin.scholarship.store');
+	  Route::get('/scholarship/edit/{id}', 'Admin\ScholarshipsController@edit')->name('admin.scholarship.edit');
+	  Route::post('/scholarship/update/{id}', 'Admin\ScholarshipsController@update')->name('admin.scholarship.update');
+	  Route::get('/scholarship/delete/{id}', 'Admin\ScholarshipsController@destroy')->name('admin.scholarship.destroy');
 	// Courses
 	Route::get('/courses', 'Admin\CoursesController@index')->name('admin.courses');
 	Route::get('/course/create', 'Admin\CoursesController@create')->name('admin.course.create');
@@ -50,7 +57,14 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
 	Route::post('/subject/store', 'Admin\SubjectsController@store')->name('admin.subject.store');
 	Route::get('/subject/edit/{id}', 'Admin\SubjectsController@edit')->name('admin.subject.edit');
 	Route::post('/subject/update/{id}', 'Admin\SubjectsController@update')->name('admin.subject.update');
-	Route::get('/subject/delete/{id}', 'Admin\SubjectsController@destroy')->name('admin.subject.destroy'); 
+	Route::get('/subject/delete/{id}', 'Admin\SubjectsController@destroy')->name('admin.subject.destroy');
+	// SubjectInfos
+	Route::get('/subjectinfos', 'Admin\SubjectInfosController@index')->name('admin.subjectinfos');
+	Route::get('/subjectinfo/create', 'Admin\SubjectInfosController@create')->name('admin.subjectinfo.create');
+	Route::post('/subjectinfo/store', 'Admin\SubjectInfosController@store')->name('admin.subjectinfo.store');
+	Route::get('/subjectinfo/edit/{id}', 'Admin\SubjectInfosController@edit')->name('admin.subjectinfo.edit');
+	Route::post('/subjectinfo/update/{id}', 'Admin\SubjectInfosController@update')->name('admin.subjectinfo.update');
+	Route::get('/subjectinfo/delete/{id}', 'Admin\SubjectInfosController@destroy')->name('admin.subjectinfo.destroy');  
 	// CTA
 	 Route::get('/ctas', 'Admin\CtasController@index')->name('admin.ctas');
 	 Route::get('/cta/create', 'Admin\CtasController@create')->name('admin.cta.create');

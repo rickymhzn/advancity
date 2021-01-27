@@ -73,10 +73,28 @@
                                         <p>Subjects</p>
                                    </a>
                               </li>
+                              <li class="nav-item">
+                                   <a href="{{ route('admin.subjectinfos') }}" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Subject Infos</p>
+                                   </a>
+                              </li>
 
                          </ul>
                     </li>
-                    
+                    <li class="nav-item">
+                         <a href="{{ route('admin.universities') }}" class="nav-link">
+                         <i class="fas fa-university"></i>
+                              <p>Universities</p>
+                              <span class="badge badge-info right">50</span>
+                         </a>
+                    </li>
+                    <li class="nav-item">
+                         <a href="{{ route('admin.scholarships') }}" class="nav-link">
+                         <i class="fas fa-user-graduate"></i>
+                              <p>Scholarships</p>
+                         </a>
+                    </li>
                     <li class="nav-item">
                          <a href="{{ route('admin.ctas') }}" class="nav-link">
                          <i class="fas fa-ad"></i>
@@ -90,13 +108,7 @@
                               <span class="badge badge-info right">10</span>
                          </a>
                     </li>
-                    <li class="nav-item">
-                         <a href="{{ route('admin.universities') }}" class="nav-link">
-                         <i class="fas fa-university"></i>
-                              <p>Universities</p>
-                              <span class="badge badge-info right">50</span>
-                         </a>
-                    </li>
+                   
                     <li class="nav-item">
                          <a href="{{ route('admin.services') }}" class="nav-link">
                          <i class="fas fa-tools"></i>

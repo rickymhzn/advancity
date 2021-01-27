@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CountryInfo extends Model
 {
-    protected $fillable = ['title','image','description'];
+    protected $fillable = ['country_id','title','image','description'];
 
     public function country()
     {

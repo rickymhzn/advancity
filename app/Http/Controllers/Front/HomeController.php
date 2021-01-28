@@ -57,8 +57,11 @@ class HomeController extends Controller
     }
     public function singleScholarship($country){
         $country = Country::whereSlug($country)->first();
-        $scholarship = Scholarship::where('country_id',$country->id)->get();
-        return view('front.scholarship',compact('scholarship'));
+        $scholarships = Scholarship::where('country_id',$country->id)->get();
+        return view('front.scholarship',compact('scholarships','country'));
+    }
+    public function applyScholarship($country){
+        return view('front.apply');
     }
     public function contactus(){
         return view('front.contactus');

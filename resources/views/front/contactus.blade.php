@@ -74,17 +74,18 @@
                          <div class="col-md-4">
                               <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
                                         class="fa fa-map-marker"></i></a>
-                              <p> Your Address ….. </p>
+                              <p> {{ $sitesetting->company_address }}</p>
                          </div>
                          <div class="col-md-4">
                               <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
                                         class="fa fa-phone"></i></a>
-                              <p>+91- 90000000</p>
+                              <p>{{ $sitesetting->company_phone }} </p>
+                              <p>{{ $sitesetting->company_mobile }}</p>
                          </div>
                          <div class="col-md-4">
                               <a class="bg-primary px-3 py-2 rounded text-white mb-2 d-inline-block"><i
                                         class="fa fa-envelope"></i></a>
-                              <p> your@gmail.com</p>
+                              <p>{{ $sitesetting->company_email }}</p>
                          </div>
                     </div>
                </div>

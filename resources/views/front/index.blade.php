@@ -181,24 +181,24 @@
 <div class="our-team">
      <h3>Meet our Team</h3>
 </div>
-<div class="for-team-slider multiple-items">
-     @foreach($teams as $team)
-     <div class="our-teams">
-          <div class="card">
-               <div class="card-body">
-                    <img class="img-fluid" src="{{ asset('assets/images/team/' . $team->image) }}"
-                         alt="{{ $team->name }}">
-               </div>
-               <div class="card-title">
-                    <h4>{{ $team->name }}</h4>
-                    <p>{{ $team->designation }}</p>
-                    <a type="button" href="{{ route('single.team',['slug' => $team->slug]) }}">View Profile</a>
-               </div>
-          </div>
-
+<div class="for-team-slider slider">
+@foreach($teams as $team)
+  <div class="our-teams row " style="padding-left:15px;">
+     <div class="col-md-3">
+     <div class="slide-image">
+          <img class="img-fluid" src="{{ asset('assets/images/team/' . $team->image) }}"/>
      </div>
-     @endforeach
-
+     <div class="team-detail">
+          <h3>{{ $team->name }}</h3>
+          <p>{{ $team->designation }}</p>
+     </div>
+     </div>
+     <div class="text-center">
+               <a class="view" type="button" href="{{ route('single.team',['slug'=>$team->slug]) }}">View Profile</a>
+     </div>
+   </div>
+   @endforeach 
+   
 </div>
 <div class="text-center mb-5">
      <a class="view" type="button" href="{{ route('ourteam') }}">View All</a>
@@ -217,7 +217,6 @@
                     </div>
                </div>
                @endforeach
-
           </div>
      </div>
 </section>
@@ -243,12 +242,11 @@
                     </div>
                </div>
                @endforeach
-          </div>
-          <div class="text-center">
+          </div>   
+     </div>
+     <div class="text-center">
                <a class="view" type="button" href="{{ route('universities') }}">View All</a>
           </div>
-     </div>
-
 </div>
 <!-- choose your universityend -->
 <!-- testionmial -->

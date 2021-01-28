@@ -303,7 +303,8 @@ a {
     display: none !important;
 }
 .team-detail {
-    padding-left: 20px;
+    text-align:center;
+    padding-top:5px;
 }
 .team-bgcolor {
     background-color: rgb(172, 133, 133);
@@ -775,16 +776,7 @@ footer .copyright .row {
 .our-teams {
     padding-top: 10px;
 }
-.our-teams .card-title {
-    text-align: center;
-}
-.our-teams .card-title a {
-    background-color: #0e90f2;
-    padding: 8px;
-    color: #fff !important;
-    border-radius: 5px;
-    font-size: 14px;
-}
+
 .page-wrapper .carrer p {
     text-align: justify;
 }
@@ -869,11 +861,14 @@ footer .copyright .row {
         text-align: left;
         padding-left: 25px;
     }
+    .col-md-3{
+        max-width:unset !important;
+    }
 }
 @media (min-width: 576px) {
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .navbar-light .navbar-brand {
         padding-left: 10px;
     }
@@ -889,6 +884,10 @@ footer .copyright .row {
     }
     .multiple-items .our-teams .card .card-body img {
         width: 150px;
+    }
+    .col-md-3{
+        max-width:unset !important;
+        padding-left:15px;
     }
 }
 

@@ -140,6 +140,7 @@ Route::get('/service/{slug}', 'Front\HomeController@singleService')->name('singl
 Route::get('/universities', 'Front\HomeController@universities')->name('universities');
 Route::get('/ourcourses/{slug}', 'Front\HomeController@ourcourses')->name('ourcourses');
 Route::get('/scholarship/{country}', 'Front\HomeController@singleScholarship')->name('single.scholarship');
+Route::get('/scholarship/{country}/apply', 'Front\HomeController@applyScholarship')->name('apply.scholarship');
 Route::get('/contact-us', 'Front\HomeController@contactus')->name('contactus');
 Route::get('/destinations', 'Front\HomeController@destinations')->name('destinations');
 Route::get('/destinations/{slug}', 'Front\HomeController@singleDestination')->name('single.destination');

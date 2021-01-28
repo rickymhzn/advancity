@@ -1,6 +1,6 @@
 <footer>
      <div class="important-link" style="background-image: url('');">
-          <div class="row">
+          <div class="row top-footer">
                <div class="col-md-3">
                     <h3>Head office</h3>
                     <ul>
@@ -75,20 +75,26 @@
                <div class="col-md-3">
                     <h3>our facebook page</h3>
                     <div id="fb-root"></div>
-                    <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcosmioinfotech&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+                    <iframe
+                         src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcosmioinfotech&tabs=timeline&width=340&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                         width="340" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                         allowfullscreen="true"
+                         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
                </div>
           </div>
      </div>
      <div class="copyright">
-               <div class="container">
-               <div class="row">
-                         <div class="col-md-6">
-                              {{ $sitesetting->copyright }}
-                         </div>
-                         <div class="col-md-6">
-                              PoweredBy <a href="http://cosmioinfotech.com/" target="_blank">Cosmio Infotech</a> <span style="display:none;">Developed by Ricky Maharjan</span>
-                         </div>
+          <div class="container">
+               <div class="row bottom-footer">
+                    <div class="col-md-6">
+                         <span>{{ $sitesetting->copyright }}</span>
+                    </div>
+                    <div class="col-md-6">
+                         <span>PoweredBy <a href="http://cosmioinfotech.com/" target="_blank">Cosmio Infotech</a>
+                         </span>
+                         <span style="display:none;">Developed by Ricky Maharjan</span>
+                    </div>
                </div>
-               </div>
+          </div>
      </div>
 </footer>

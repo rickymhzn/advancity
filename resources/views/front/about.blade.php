@@ -3,7 +3,7 @@
 
 <section class="breadcrumb" style="background-image: url(./img/page-top.JPG); padding-top: 84px;">
      <div class="container">
-          <h1>About us</h1>
+          <h3>About us</h3>
      </div>
 </section>
 <div class="page-wrapper">

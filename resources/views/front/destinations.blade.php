@@ -2,7 +2,7 @@
 @section('content')
 <section class="breadcrumb" style="background-image: url(./img/page-top.JPG); padding-top: 84px;">
      <div class="container">
-          <h1>Destinations</h1>
+          <h3>Destinations</h3>
      </div>
 </section>
 

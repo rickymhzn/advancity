@@ -31,6 +31,7 @@ Create Team Member
                          <div class="card-header">
                               <h3 class="card-title">Add Team Member</h3>
                          </div>
+                         @include('admin.layouts.formerror')
                          <form role="form" action="{{ route('admin.team.store') }}" method="post"
                               enctype="multipart/form-data">
                               @csrf

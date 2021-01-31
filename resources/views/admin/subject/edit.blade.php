@@ -31,6 +31,7 @@
                          <div class="card-header">
                               <h3 class="card-title">Update Subject</h3>
                          </div>
+                         @include('admin.layouts.formerror')
                          <form role="form" action="{{ route('admin.subject.update',['id' => $subject->id])  }}" method="post"
                               enctype="multipart/form-data">
                               @csrf

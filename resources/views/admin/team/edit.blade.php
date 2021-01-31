@@ -31,6 +31,7 @@
                          <div class="card-header">
                               <h3 class="card-title">Edit Team Member</h3>
                          </div>
+                         @include('admin.layouts.formerror')
                          <form role="form" action="{{ route('admin.team.update',['id' => $team->id])  }}" method="post"
                               enctype="multipart/form-data">
                               @csrf

@@ -31,6 +31,7 @@ Edit University
                          <div class="card-header">
                               <h3 class="card-title">Update University</h3>
                          </div>
+                         @include('admin.layouts.formerror')
                          <form role="form" action="{{ route('admin.university.update',['id' => $university->id])  }}"
                               method="post" enctype="multipart/form-data">
                               @csrf

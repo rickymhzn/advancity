@@ -31,6 +31,7 @@ Create Subject Info
                          <div class="card-header">
                               <h3 class="card-title">Create Subject Info</h3>
                          </div>
+                         @include('admin.layouts.formerror')
                          <form role="form" action="{{ route('admin.subjectinfo.store') }}" method="post">
                               @csrf
                               <div class="form-group">

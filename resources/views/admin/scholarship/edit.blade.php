@@ -31,6 +31,7 @@
                          <div class="card-header">
                               <h3 class="card-title">Update Scholarship</h3>
                          </div>
+                         @include('admin.layouts.formerror')
                          <form role="form" action="{{ route('admin.scholarship.update',['id' => $scholarship->id])  }}" method="post">
                               @csrf
                               <div class="form-group">

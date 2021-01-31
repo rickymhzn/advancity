@@ -27,7 +27,7 @@ a {
     float: left;
 }
 .header-logo {
-    height: 66px;
+    height: 80px;
     width: auto;
 }
 .top-nav .right {
@@ -35,6 +35,7 @@ a {
 }
 .top-nav .left ul {
     margin: 0;
+    padding: 0;
     list-style: none;
 }
 .top-nav .left ul li {
@@ -59,11 +60,11 @@ a {
 .navbar-light .navbar-brand {
     padding-left: 60px;
 }
-.navbar-expand-lg .navbar-nav {
+.navbar-nav {
     line-height: 45px;
 }
-.navbar-expand-lg .navbar-collapse {
-    padding-left: 160px;
+.slick-slide {
+    padding: 15px;
 }
 
 #navbarSupportedContent ul li .color-black {
@@ -851,19 +852,12 @@ footer .copyright .row {
     .navbar-light .navbar-brand {
         padding-left: 10px;
     }
-    .navbar-expand-lg .navbar-collapse {
-        padding-left: 0px;
-    }
-    .dropdown-menu {
-        width: 100px;
-    }
+   
     .multiple-items .our-teams .card .card-title {
         text-align: left;
         padding-left: 25px;
     }
-    .col-md-3{
-        max-width:unset !important;
-    }
+ 
 }
 @media (min-width: 576px) {
 }
@@ -872,12 +866,7 @@ footer .copyright .row {
     .navbar-light .navbar-brand {
         padding-left: 10px;
     }
-    .navbar-expand-lg .navbar-collapse {
-        padding-left: 0px;
-    }
-    .dropdown-menu {
-        width: 100px;
-    }
+   
     .multiple-items .our-teams .card .card-title {
         text-align: left;
         padding-left: 25px;
@@ -885,22 +874,15 @@ footer .copyright .row {
     .multiple-items .our-teams .card .card-body img {
         width: 150px;
     }
-    .col-md-3{
-        max-width:unset !important;
-        padding-left:15px;
-    }
+    
 }
 
 @media (max-width: 992px) {
     .navbar-light .navbar-brand {
         padding-left: 10px;
     }
-    .navbar-expand-lg .navbar-collapse {
-        padding-left: 0px;
-    }
-    .dropdown-menu {
-        width: 100px;
-    }
+  
+
     .multiple-items .our-teams .card .card-title {
         text-align: left;
         padding-left: 25px;

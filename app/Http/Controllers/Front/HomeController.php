@@ -15,6 +15,7 @@ use App\Models\Testimonial;
 use App\Models\Course;
 use App\Models\Service;
 use App\Models\Scholarship;
+use App\Models\Page;
 
 class HomeController extends Controller
 {
@@ -32,7 +33,12 @@ class HomeController extends Controller
         return view('front.index',compact('sliders','countries','universities','teams','testSubjects','testSubjectInfos','counters','testimonials'));
     }
     public function about(){
-        return view('front.about');
+        $about =  Page::where('slug','about-us')->first();
+        return view('front.about',compact('about'));
+    }
+    public function companyprofile(){
+        $page =  Page::where('slug','company-profile')->first();
+        return view('front.companyProfile',compact('page'));
     }
     public function ourteam(){
         $teams = Team::orderBy('id','asc')->get();
@@ -55,10 +61,13 @@ class HomeController extends Controller
         $subjects = Subject::where('course_id',$course->id)->get();
         return view('front.ourcourses',compact('course','subjects'));
     }
+    public function scholarship(){
+        return view('front.scholarship');
+    }
     public function singleScholarship($country){
         $country = Country::whereSlug($country)->first();
         $scholarships = Scholarship::where('country_id',$country->id)->get();
-        return view('front.scholarship',compact('scholarships','country'));
+        return view('front.single.singleScholarship',compact('scholarships','country'));
     }
     public function applyScholarship($country){
         return view('front.apply');

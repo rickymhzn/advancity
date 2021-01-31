@@ -100,8 +100,9 @@ class ProfilesController extends Controller
         $user->profile->about=$request->about;
     
         $hashedPassword = Auth::user()->password;
-        if($request->has('password'))
+        if( !$request->password == null)
         {
+            // dd($request->all());
             if(\Hash::check($request->oldpassword , $hashedPassword )){
                 if($request->password == $request->confirmpassword)
                 {

@@ -140,6 +140,7 @@ Route::get('/ourteam/{slug}', 'Front\HomeController@singleTeam')->name('single.t
 Route::get('/service/{slug}', 'Front\HomeController@singleService')->name('single.service');
 Route::get('/universities', 'Front\HomeController@universities')->name('universities');
 Route::get('/ourcourses/{slug}', 'Front\HomeController@ourcourses')->name('ourcourses');
+Route::get('/ourcourses/{slug}/{subject}/{id}', 'Front\HomeController@singleSubject')->name('single.subject');
 Route::get('/scholarship', 'Front\HomeController@scholarship')->name('scholarship');
 Route::get('/scholarship/{country}', 'Front\HomeController@singleScholarship')->name('single.scholarship');
 Route::get('/scholarship/{country}/apply', 'Front\HomeController@applyScholarship')->name('apply.scholarship');
@@ -147,6 +148,7 @@ Route::get('/contact-us', 'Front\HomeController@contactus')->name('contactus');
 Route::get('/destinations', 'Front\HomeController@destinations')->name('destinations');
 Route::get('/destinations/{slug}', 'Front\HomeController@singleDestination')->name('single.destination');
 
-
+Route::get('/emails', 'Front\EmailsController@index')->name('emails');
+Route::post('/sendemail', 'Front\EmailsController@send')->name('sendemail');
 
 // Route::get('/home', 'HomeController@index')->name('home');

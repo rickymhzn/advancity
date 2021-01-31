@@ -2,6 +2,10 @@
 body {
     font-family: "Roboto", sans-serif !important;
 }
+.img-fluid {
+   width: 100%;
+    height: auto;
+}
 .col-md-4 {
     padding-top: 15px;
 }
@@ -142,15 +146,18 @@ a {
     bottom: 0px;
     left: 0px;
     background-color: #0e90f2;
-    padding: 0 5px 0 20px;
+    padding: 10px;
     width: 100%;
+    text-align: center;
 }
 .bottom-lefts .test-title {
     text-transform: uppercase;
+    font-size: 18px;
 }
+
 .content {
     position: relative;
-    width: 90%;
+    width: 100%;
     max-width: 400px;
     margin: auto;
     overflow: hidden;
@@ -397,6 +404,13 @@ a {
 .counter-box.colored i,
 .counter-box.colored .counter {
     color: #fff;
+}
+#subjectaccordion {
+    margin-bottom: 20px;
+}
+#subjectaccordion .btn-link{
+    color: #fff;
+    text-decoration: none;
 }
 /*-----Testimonial-------*/
 
@@ -788,6 +802,9 @@ footer .copyright .row {
 .related-link .tab-content img {
     width: 100%;
     height: auto;
+}
+.related-link a{
+    color: #000 !important;
 }
 .australia-detail p {
     text-align: justify;

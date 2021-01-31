@@ -146,7 +146,7 @@
                                                        <button class="btn btn-link" data-toggle="collapse"
                                                             data-target="#collapse-{{ $testSubjectInfo->subject->name}}-{{ $testSubjectInfo->id }}" aria-expanded="true"
                                                             aria-controls="collapse-{{ $testSubjectInfo->subject->name}}-{{ $testSubjectInfo->id }}">
-                                                            Scholarships in Australia for International Students:
+                                                            {{ $testSubjectInfo->title }}
                                                        </button>
                                                   </h5>
                                              </div>
@@ -154,13 +154,7 @@
                                              <div id="collapse-{{ $testSubjectInfo->subject->name}}-{{ $testSubjectInfo->id }}" class="collapse {{ $loop->first ? 'show' : '' }}" aria-labelledby="{{ $testSubjectInfo->subject->name}}-{{ $testSubjectInfo->id }}"
                                                   data-parent="#testAccordion">
                                                   <div class="card-body">
-                                                       There are many grants, scholarships and bursaries available to
-                                                       assist International students financially in Australia. The
-                                                       Australian Government has invested over a $300 million in
-                                                       scholarships for international students. Please call us for more
-                                                       information in this regard. You can also find more information
-                                                       this link:
-                                                       https://www.studyinaustralia.gov.au/English/Australian-Education/Scholarships
+                                                  {!! $testSubjectInfo->description !!}
                                                   </div>
                                              </div>
                                         </div>

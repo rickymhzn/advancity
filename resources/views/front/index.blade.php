@@ -183,8 +183,7 @@
 </div>
 <div class="for-team-slider slider">
 @foreach($teams as $team)
-  <div class="our-teams row " style="padding-left:15px;">
-     <div class="col-md-3">
+  <div class="our-teams">
      <div class="slide-image">
           <img class="img-fluid" src="{{ asset('assets/images/team/' . $team->image) }}"/>
      </div>
@@ -192,13 +191,11 @@
           <h3>{{ $team->name }}</h3>
           <p>{{ $team->designation }}</p>
      </div>
-     </div>
      <div class="text-center">
                <a class="view" type="button" href="{{ route('single.team',['slug'=>$team->slug]) }}">View Profile</a>
      </div>
    </div>
    @endforeach 
-   
 </div>
 <div class="text-center mb-5">
      <a class="view" type="button" href="{{ route('ourteam') }}">View All</a>
@@ -210,7 +207,7 @@
           <div class="row">
 
                @foreach($counters as $counter)
-               <div class="four col">
+               <div class="four col-md-3">
                     <div class="counter-box colored"> <i class="{{ $counter->icon }}"></i> <span
                               class="counter">{{ $counter->value }}+</span>
                          <p>{{ $counter->title }}</p>

@@ -134,11 +134,13 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function() {
 // Frontend
 Route::get('/', 'Front\HomeController@index')->name('index');
 Route::get('/about', 'Front\HomeController@about')->name('about');
+Route::get('/about/company-profile', 'Front\HomeController@companyprofile')->name('about.companyprofile');
 Route::get('/ourteam', 'Front\HomeController@ourteam')->name('ourteam');
 Route::get('/ourteam/{slug}', 'Front\HomeController@singleTeam')->name('single.team');
 Route::get('/service/{slug}', 'Front\HomeController@singleService')->name('single.service');
 Route::get('/universities', 'Front\HomeController@universities')->name('universities');
 Route::get('/ourcourses/{slug}', 'Front\HomeController@ourcourses')->name('ourcourses');
+Route::get('/scholarship', 'Front\HomeController@scholarship')->name('scholarship');
 Route::get('/scholarship/{country}', 'Front\HomeController@singleScholarship')->name('single.scholarship');
 Route::get('/scholarship/{country}/apply', 'Front\HomeController@applyScholarship')->name('apply.scholarship');
 Route::get('/contact-us', 'Front\HomeController@contactus')->name('contactus');

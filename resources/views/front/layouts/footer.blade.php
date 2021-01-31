@@ -85,12 +85,10 @@
      </div>
      <div class="copyright">
           <div class="container">
-               <div class="row bottom-footer">
-                    <div class="col-md-6">
+               <div class="row bottom-footer text-center">
+                    <div class="col-12">
                          <span>{{ $sitesetting->copyright }}</span>
-                    </div>
-                    <div class="col-md-6">
-                         <span>PoweredBy <a href="http://cosmioinfotech.com/" target="_blank">Cosmio Infotech</a>
+                         <span>| PoweredBy <a href="http://cosmioinfotech.com/" target="_blank">Cosmio Infotech</a>
                          </span>
                          <span style="display:none;">Developed by Ricky Maharjan</span>
                     </div>

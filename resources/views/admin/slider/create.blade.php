@@ -31,6 +31,7 @@ Create Slider
                          <div class="card-header">
                               <h3 class="card-title">Create Slider</h3>
                          </div>
+                         @include('admin.layouts.formerror')
                          <form role="form" action="{{ route('admin.slider.store') }}" method="post"
                               enctype="multipart/form-data">
                               @csrf

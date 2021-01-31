@@ -31,6 +31,7 @@ Create Course
                          <div class="card-header">
                               <h3 class="card-title">Create Course</h3>
                          </div>
+                         @include('admin.layouts.formerror')
                          <form role="form" action="{{ route('admin.course.store') }}" method="post"
                               enctype="multipart/form-data">
                               @csrf

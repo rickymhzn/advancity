@@ -29,7 +29,8 @@
           <div class="card card-primary">
               <div class="card-header">
                 <h3 class="card-title">Update Settings</h3>
-              </div>          
+              </div>      
+              @include('admin.layouts.formerror')    
                 <div class="card-body">
                 <form role="form" class="form" action="{{ route('setting.update',['id' => $setting->id]) }}" method="post"
                               enctype="multipart/form-data">

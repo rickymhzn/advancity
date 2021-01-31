@@ -31,6 +31,7 @@ Edit Page
                          <div class="card-header">
                               <h3 class="card-title">Edit Page</h3>
                          </div>
+                         @include('admin.layouts.formerror')
                          <form role="form" action="{{ route('admin.page.update',['id' => $page->id])  }}" method="post"
                               enctype="multipart/form-data">
                               @csrf

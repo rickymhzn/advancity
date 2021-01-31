@@ -31,6 +31,7 @@
                          <div class="card-header">
                               <h3 class="card-title">Update CTA</h3>
                          </div>
+                         @include('admin.layouts.formerror')
                          <form role="form" action="{{ route('admin.cta.update',['id' => $cta->id])  }}" method="post"
                               enctype="multipart/form-data">
                               @csrf

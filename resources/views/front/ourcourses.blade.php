@@ -11,7 +11,7 @@
           @foreach($subjects as $subject)
           <div class="col-md-4">
                <div class="content">
-                    <a href="#">
+                    <a href="{{ route('single.subject',['slug' => $course->slug,'subject' => $subject->slug,'id' => $subject->id ]) }}">
                          <div class="content-overlay"></div>
                          <img class="content-image" src="{{ asset('assets/images/subject/' . $subject->image) }}"
                               alt="{{ $subject->name }}">
@@ -20,7 +20,7 @@
                          </div>
                          <div class="bottom-lefts">
                               <span class="test-title">{{ $subject->name }}</span>
-                              <br><span class="test-detail truncate-text">{!! $subject->description !!}</span>
+                              
                          </div>
                     </a>
                </div>

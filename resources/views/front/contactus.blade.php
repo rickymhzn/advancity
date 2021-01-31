@@ -21,39 +21,63 @@
                               </div>
                          </div>
                          <div class="card-body p-3">
-
-                              <div class="form-group">
+                         @if (count($errors) > 0)
+                              <div class="alert alert-danger">
+                                   <button type="button" class="close" data-dismiss="alert">×</button>
+                                   <ul>
+                                   @foreach ($errors->all() as $error)
+                                   <li>{{ $error }}</li>
+                                   @endforeach
+                                   </ul>
+                              </div>
+                              @endif
+                              @if ($message = Session::get('success'))
+                              <div class="alert alert-success alert-block">
+                              <button type="button" class="close" data-dismiss="alert">×</button>
+                                        <strong>{{ $message }}</strong>
+                              </div>
+                              @endif
+                             <form class="form" method="post" action="{{ route('sendemail') }}">
+                             @csrf
+                             <div class="form-group">
                                    <label> Your name </label>
                                    <div class="input-group">
-                                        <input value="" type="text" name="data[name]" class="form-control"
-                                             id="inlineFormInputGroupUsername" placeholder="Your name">
+                                        <input  type="text" name="name" class="form-control"
+                                             id="name" placeholder="Your name">
                                    </div>
                               </div>
                               <div class="form-group">
                                    <label>Your email</label>
                                    <div class="input-group mb-2 mb-sm-0">
-                                        <input type="email" value="" name="data[email]" class="form-control"
-                                             id="inlineFormInputGroupUsername" placeholder="Email">
+                                        <input type="email" value="" name="email" class="form-control"
+                                             id="email" placeholder="Email">
                                    </div>
                               </div>
                               <div class="form-group">
                                    <label>Subject</label>
                                    <div class="input-group mb-2 mb-sm-0">
-                                        <input type="text" name="data[subject]" class="form-control"
-                                             id="inlineFormInputGroupUsername" placeholder="Subject">
+                                        <input type="text" name="subject" class="form-control"
+                                             id="subject" placeholder="Subject">
+                                   </div>
+                              </div>
+                              <div class="form-group">
+                                   <label>Contact Number</label>
+                                   <div class="input-group mb-2 mb-sm-0">
+                                        <input type="text" name="number" class="form-control"
+                                             id="number" placeholder="Number">
                                    </div>
                               </div>
                               <div class="form-group">
                                    <label>Message</label>
-                                   <div class="input-group mb-2 mb-sm-0">
-                                        <input type="text" class="form-control" name="mesg">
-                                   </div>
+                                   <textarea class="form-control" name="message"></textarea>
+                                   
                               </div>
                               <div class="text-center">
                                    <input type="submit" name="submit" value="submit"
                                         class="btn btn-primary btn-block rounded-0 py-2">
                               </div>
 
+                              </form>
                          </div>
 
                     </div>

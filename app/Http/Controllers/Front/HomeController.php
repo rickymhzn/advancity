@@ -49,8 +49,9 @@ class HomeController extends Controller
         return view('front.single.teamProfile',compact('team'));
     }
     public function singleService($slug){
+        $allservices = Service::orderBy('id','asc')->get();
         $service = Service::whereSlug($slug)->first();
-        return view('front.single.singleService',compact('service'));
+        return view('front.single.singleService',compact('service','allservices'));
     }
     public function universities(){
         $universities = University::orderBy('id','asc')->get();
@@ -60,6 +61,12 @@ class HomeController extends Controller
         $course = Course::whereSlug($slug)->first();
         $subjects = Subject::where('course_id',$course->id)->get();
         return view('front.ourcourses',compact('course','subjects'));
+    }
+    public function singleSubject($slug, $subject,$id){
+        $course = Course::whereSlug($slug)->first();
+        $subject = Subject::where('slug',$subject)->first();
+        $subjectinfos = SubjectInfo::where('subject_id',$id)->get();
+        return view('front.single.singleSubject',compact('course','subject','subjectinfos'));
     }
     public function scholarship(){
         return view('front.scholarship');
